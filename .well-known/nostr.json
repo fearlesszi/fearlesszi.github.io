@@ -10,7 +10,7 @@
     "bill": "e79d7085a8bacba74a26139f9bb549f8b1466d45bb6915ff1e19d7e86fe65092",
     "franc": "86f3d3127f8f784e3741a7ba6184fbb123c2e296d7620dbc6ccaffb1f4113fa7"
   },
-  "relays": 
+  "relays": {
     "5f385b8fb7b2ac023cbf30e8cf4f18c00312a86b08793337e4ea25927b4777f5": [ "wss://relay.damus.io" ],
     "bbea361aac69e79cb60f1b35363ae6bc3e88c023ec79ffe0432540cc4e91b8b5": [ "wss://relay.damus.io" ],
     "b60b802564684439b75ba423de6abedf0e1049fc681216d711722a481f7bdd6a": [ "wss://relay.damus.io" ],
