@@ -1,81 +1,24 @@
 {
   "names": {
-    "fearless": "5f385b8fb7b2ac023cbf30e8cf4f18c00312a86b08793337e4ea25927b4777f5"
-  },
-  "relays": {
-    "5f385b8fb7b2ac023cbf30e8cf4f18c00312a86b08793337e4ea25927b4777f5": [ "wss://relay.damus.io" ]
-  }
-}
-
-{
-  "names": {
-    "Siven": "bbea361aac69e79cb60f1b35363ae6bc3e88c023ec79ffe0432540cc4e91b8b5"
-  },
-  "relays": {
-    "bbea361aac69e79cb60f1b35363ae6bc3e88c023ec79ffe0432540cc4e91b8b5": [ "wss://relay.damus.io" ]
-  }
-}
-
-{
-  "names": {
-    "captain777": "b60b802564684439b75ba423de6abedf0e1049fc681216d711722a481f7bdd6a"
-  },
-  "relays": {
-    "b60b802564684439b75ba423de6abedf0e1049fc681216d711722a481f7bdd6a": [ "wss://relay.damus.io" ]
-  }
-}
-
-{
-  "names": {
-    "lan": "278c24a06b458abd60d167115beb2fc3aee32f4008090271226741ed8e57a6ae"
-  },
-  "relays": {
-    "278c24a06b458abd60d167115beb2fc3aee32f4008090271226741ed8e57a6ae": [ "wss://relay.damus.io" ]
-  }
-}
-
-{
-  "names": {
-    "mia168": "b6aa214672fa374a4fcde1caa46fd3c440d2818e26ecc14f054957879f9ab283"
-  },
-  "relays": {
-    "b6aa214672fa374a4fcde1caa46fd3c440d2818e26ecc14f054957879f9ab283": [ "wss://relay.damus.io" ]
-  }
-}
-
-
-{
-  "names": {
-    "boygame": "a827c1d53b0e51bc42fbdbdf029d76c0bedf607491dcbddbf4357d4f8a66b05d"
-  },
-  "relays": {
-    "a827c1d53b0e51bc42fbdbdf029d76c0bedf607491dcbddbf4357d4f8a66b05d": [ "wss://relay.damus.io" ]
-  }
-}
-
-{
-  "names": {
-    "6666": "dc60c9c9db8c339d15cfada31377876e871b89ad0ffbffc252177f809bfe881e"
-  },
-  "relays": {
-    "dc60c9c9db8c339d15cfada31377876e871b89ad0ffbffc252177f809bfe881e": [ "wss://relay.damus.io" ]
-  }
-}
-
-{
-  "names": {
-    "bill": "e79d7085a8bacba74a26139f9bb549f8b1466d45bb6915ff1e19d7e86fe65092"
-  },
-  "relays": {
-    "e79d7085a8bacba74a26139f9bb549f8b1466d45bb6915ff1e19d7e86fe65092": [ "wss://relay.damus.io" ]
-  }
-}
-
-{
-  "names": {
+    "fearless": "5f385b8fb7b2ac023cbf30e8cf4f18c00312a86b08793337e4ea25927b4777f5",
+    "Siven": "bbea361aac69e79cb60f1b35363ae6bc3e88c023ec79ffe0432540cc4e91b8b5",
+    "captain777": "b60b802564684439b75ba423de6abedf0e1049fc681216d711722a481f7bdd6a",
+    "lan": "278c24a06b458abd60d167115beb2fc3aee32f4008090271226741ed8e57a6ae",
+    "mia168": "b6aa214672fa374a4fcde1caa46fd3c440d2818e26ecc14f054957879f9ab283",
+    "boygame": "a827c1d53b0e51bc42fbdbdf029d76c0bedf607491dcbddbf4357d4f8a66b05d",
+    "6666": "dc60c9c9db8c339d15cfada31377876e871b89ad0ffbffc252177f809bfe881e",
+    "bill": "e79d7085a8bacba74a26139f9bb549f8b1466d45bb6915ff1e19d7e86fe65092",
     "franc": "86f3d3127f8f784e3741a7ba6184fbb123c2e296d7620dbc6ccaffb1f4113fa7"
   },
-  "relays": {
+  "relays": 
+    "5f385b8fb7b2ac023cbf30e8cf4f18c00312a86b08793337e4ea25927b4777f5": [ "wss://relay.damus.io" ],
+    "bbea361aac69e79cb60f1b35363ae6bc3e88c023ec79ffe0432540cc4e91b8b5": [ "wss://relay.damus.io" ],
+    "b60b802564684439b75ba423de6abedf0e1049fc681216d711722a481f7bdd6a": [ "wss://relay.damus.io" ],
+    "278c24a06b458abd60d167115beb2fc3aee32f4008090271226741ed8e57a6ae": [ "wss://relay.damus.io" ],
+    "b6aa214672fa374a4fcde1caa46fd3c440d2818e26ecc14f054957879f9ab283": [ "wss://relay.damus.io" ],
+    "a827c1d53b0e51bc42fbdbdf029d76c0bedf607491dcbddbf4357d4f8a66b05d": [ "wss://relay.damus.io" ],
+    "dc60c9c9db8c339d15cfada31377876e871b89ad0ffbffc252177f809bfe881e": [ "wss://relay.damus.io" ],
+    "e79d7085a8bacba74a26139f9bb549f8b1466d45bb6915ff1e19d7e86fe65092": [ "wss://relay.damus.io" ],
     "86f3d3127f8f784e3741a7ba6184fbb123c2e296d7620dbc6ccaffb1f4113fa7": [ "wss://relay.damus.io" ]
   }
 }
