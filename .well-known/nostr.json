@@ -1,6 +1,7 @@
 {
   "names": {
     "fearless": "5f385b8fb7b2ac023cbf30e8cf4f18c00312a86b08793337e4ea25927b4777f5",
+    "fearless": "45d9ee118067b0e0af1a3cb0d7984e45f4c0ffcf08069f01415fbba5bc18ab45",
     "Siven": "bbea361aac69e79cb60f1b35363ae6bc3e88c023ec79ffe0432540cc4e91b8b5",
     "captain777": "b60b802564684439b75ba423de6abedf0e1049fc681216d711722a481f7bdd6a",
     "lan": "278c24a06b458abd60d167115beb2fc3aee32f4008090271226741ed8e57a6ae",
@@ -12,6 +13,7 @@
   },
   "relays": {
     "5f385b8fb7b2ac023cbf30e8cf4f18c00312a86b08793337e4ea25927b4777f5": [ "wss://relay.damus.io" ],
+    "45d9ee118067b0e0af1a3cb0d7984e45f4c0ffcf08069f01415fbba5bc18ab45": [ "wss://relay.plebstr.com" ],
     "bbea361aac69e79cb60f1b35363ae6bc3e88c023ec79ffe0432540cc4e91b8b5": [ "wss://relay.damus.io" ],
     "b60b802564684439b75ba423de6abedf0e1049fc681216d711722a481f7bdd6a": [ "wss://relay.damus.io" ],
     "278c24a06b458abd60d167115beb2fc3aee32f4008090271226741ed8e57a6ae": [ "wss://relay.damus.io" ],
