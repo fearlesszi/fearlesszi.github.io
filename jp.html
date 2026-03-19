@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>现代战争推演：潜在目标与饱和打击 | 現代戦シミュレーション</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    
+    <style>
+        :root {
+            --jp-white: #fdfdfd;
+            --jp-red: #bc002d;
+            --jp-dark: #333333;
+            --jp-gray: #f0f0f0;
+            
+            --cn-red: #7a0c14; /* 紫禁城红墙色 */
+            --cn-gold: #f5b041;
+            --cn-dark: #3e0408;
+            --cn-text: #fcf3cf;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow-x: hidden;
+            background-color: var(--jp-white);
+        }
+
+        /* 语言切换控制 */
+        body.lang-ja { font-family: 'Noto Sans JP', sans-serif; }
+        body.lang-ja .zh { display: none !important; }
+        body:not(.lang-ja) .ja { display: none !important; }
+
+        .lang-switch {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 10px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            font-size: 1.2rem;
+            user-select: none;
+            transition: transform 0.2s;
+        }
+        .lang-switch:hover { transform: scale(1.05); }
+
+        /* 通用样式 */
+        section { padding: 80px 5%; }
+        h1, h2, h3 { line-height: 1.3; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .data-card {
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .data-card:hover { transform: translateY(-5px); }
+
+        .icon-large { font-size: 3rem; margin-bottom: 10px; }
+        .num-large { font-size: 3.5rem; font-weight: 900; line-height: 1; margin: 10px 0; }
+        .text-small { font-size: 0.95rem; font-weight: 500; opacity: 0.8; }
+        .detail-list { text-align: left; margin-top: 15px; font-size: 0.85rem; line-height: 1.6; opacity: 0.7; }
+
+        /* 日本部分样式 */
+        #japan-section {
+            background-color: var(--jp-white);
+            color: var(--jp-dark);
+        }
+        #japan-section .section-title h1 { font-size: 2.5rem; color: var(--jp-red); }
+        #japan-section .data-card { background: var(--jp-gray); border-top: 4px solid var(--jp-red); }
+        #japan-section .icon-large { color: var(--jp-red); }
+        #japan-section .num-large { color: var(--jp-dark); }
+        
+        /* 高价值目标区 */
+        .high-value-box {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            background: #fff;
+            border: 2px dashed var(--jp-red);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        /* 警告线过渡 */
+        .warning-line {
+            height: 40px;
+            background: repeating-linear-gradient(
+                -45deg,
+                #000,
+                #000 20px,
+                #ffcc00 20px,
+                #ffcc00 40px
+            );
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* 中国无人机部分样式 */
+        #china-section {
+            background-color: var(--cn-red);
+            background-image: radial-gradient(circle at center, var(--cn-red) 0%, var(--cn-dark) 100%);
+            color: var(--cn-text);
+            position: relative;
+        }
+        #china-section .section-title h1 { font-size: 3rem; color: var(--cn-gold); text-shadow: 0 0 10px rgba(245, 176, 65, 0.5); }
+        
+        .drone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .drone-card {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(245, 176, 65, 0.3);
+            padding: 40px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        #china-section .icon-large { color: var(--cn-gold); font-size: 4rem; text-shadow: 0 0 15px var(--cn-gold); }
+        #china-section .num-large { color: #fff; font-size: 4.5rem; text-shadow: 0 0 20px rgba(255,255,255,0.4); }
+        #china-section .text-small { color: var(--cn-gold); letter-spacing: 2px; }
+
+        .conclusion {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .conclusion h2 {
+            font-size: 3rem;
+            color: #fff;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255,0,0,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .num-large { font-size: 2.5rem !important; }
+            #china-section .num-large { font-size: 3rem !important; }
+            .conclusion h2 { font-size: 2rem; letter-spacing: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switch" onclick="toggleLanguage()">
+        <span class="zh">🇨🇳 中文 / 🇯🇵</span>
+        <span class="ja">🇯🇵 日本語 / 🇨🇳</span>
+    </div>
+
+    <section id="japan-section">
+        <div class="section-title">
+            <h1 class="zh">日本全境潜在高价值军事目标评估</h1>
+            <h1 class="ja">日本全土における潜在的高価値軍事目標の評価</h1>
+            <p class="text-small zh" style="color:#666; margin-top:10px;">基于防卫省与美军公开数据的现实分布架构 (2025-2026)</p>
+            <p class="text-small ja" style="color:#666; margin-top:10px;">防衛省および米軍の公開データに基づく現実的な分布構造 (2025-2026)</p>
+        </div>
+
+        <div class="grid-container">
+            <div class="data-card">
+                <span class="material-symbols-outlined icon-large">military_tech</span>
+                <div class="num-large">164</div>
+                <div class="text-small zh">陆上自卫队设施</div>
+                <div class="text-small ja">陸上自衛隊施設</div>
+                <div class="detail-list zh">驻屯地约135个<br>分屯地约29个</div>
+                <div class="detail-list ja">駐屯地約135ヶ所<br>分屯地約29ヶ所</div>
+            </div>
+
+            <div class="data-card">
+                <span class="material-symbols-outlined icon-large">directions_boat</span>
+                <div class="num-large">30<span style="font-size:1.5rem;">+</span></div>
+                <div class="text-small zh">海上自卫队主要基地</div>
+                <div class="text-small ja">海上自衛隊主要基地</div>
+                <div class="detail-list zh">五大要塞：横须贺, 吴, 佐世保, 舞鹤, 大湊<br>及地方队、航空基地等</div>
+                <div class="detail-list ja">五大基地：横須賀, 呉, 佐世保, 舞鶴, 大湊<br>地方隊、航空基地等を含む</div>
+            </div>
+
+            <div class="data-card">
+                <span class="material-symbols-outlined icon-large">flight</span>
+                <div class="num-large">73</div>
+                <div class="text-small zh">航空自卫队基地</div>
+                <div class="text-small ja">航空自衛隊基地</div>
+                <div class="detail-list zh">主要基地25处<br>含雷达站、导弹阵地等</div>
+                <div class="detail-list ja">主要基地25ヶ所<br>レーダーサイト、ミサイル基地等を含む</div>
+            </div>
+
+            <div class="data-card">
+                <span class="material-symbols-outlined icon-large">public</span>
+                <div class="num-large">150</div>
+                <div class="text-small zh">在日美军设施 (本土+冲绳)</div>
+                <div class="text-small ja">在日米軍施設 (本土+沖縄)</div>
+                <div class="detail-list zh">本土专用及共用：约80-120处<br>冲绳专用设施：31处 (嘉手纳等)</div>
+                <div class="detail-list ja">本土専用・共用：約80-120ヶ所<br>沖縄専用施設：31ヶ所 (嘉手納等)</div>
+            </div>
+        </div>
+
+        <div class="high-value-box">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span class="material-symbols-outlined icon-large">crisis_alert</span>
+                <h2 class="zh">第一波重点打击：高价值目标</h2>
+                <h2 class="ja">第一波重点攻撃：高価値目標</h2>
+                <p class="zh" style="font-size: 2.5rem; font-weight: 900; color: var(--jp-red);">200 - 500 <span style="font-size: 1rem; color: #333;">处核心节点</span></p>
+                <p class="ja" style="font-size: 2.5rem; font-weight: 900; color: var(--jp-red);">200 - 500 <span style="font-size: 1rem; color: #333;">の核心拠点</span></p>
+            </div>
+            <div class="grid-container" style="grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="detail-list zh">
+                    • <b>航空主力：</b>三泽、小松、那覇、新田原、百里等 (约10-15个)<br>
+                    • <b>海上母港：</b>横须贺、吴、佐世保及重要舰艇锚地 (约10-15个)<br>
+                    • <b>美军枢纽：</b>横田、三泽、岩国、嘉手纳、普天间等 (约10个)
+                </div>
+                <div class="detail-list zh">
+                    • <b>指挥中枢：</b>市ヶ谷、防卫省、幕僚监部、各方面队司令部<br>
+                    • <b>反导网络：</b>宙斯盾舰常驻港及陆基预定地<br>
+                    • <b>后勤预警：</b>主要弹药/燃料库、卫星通信站、早期预警雷达站
+                </div>
+                <div class="detail-list ja">
+                    • <b>航空主力：</b>三沢、小松、那覇、新田原、百里など (約10-15ヶ所)<br>
+                    • <b>海上母港：</b>横須賀、呉、佐世保および重要艦艇泊地 (約10-15ヶ所)<br>
+                    • <b>米軍拠点：</b>横田、三沢、岩国、嘉手納、普天間など (約10ヶ所)
+                </div>
+                <div class="detail-list ja">
+                    • <b>指揮中枢：</b>市ヶ谷、防衛省、幕僚監部、各方面隊司令部<br>
+                    • <b>ミサイル防衛：</b>イージス艦常駐港および陸上配備予定地<br>
+                    • <b>兵站・早期警戒：</b>主要弾薬/燃料庫、衛星通信所、早期警戒レーダー
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:20px; font-weight:bold; color:var(--jp-red);">
+                <span class="zh">军事设施点全境合计：约 500 - 600 处</span>
+                <span class="ja">軍事施設全土合計：約 500 - 600 ヶ所</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="warning-line"></div>
+
+    <section id="china-section">
+        <div class="section-title">
+            <h1 class="zh">现代无人机蜂群饱和打击模型</h1>
+            <h1 class="ja">現代無人機スウォーム飽和攻撃モデル</h1>
+            <p class="text-small zh">基于全境 500 个高危军事目标的绝对压制级战术算力</p>
+            <p class="text-small ja">全土500の軍事目標に対する絶対制圧級戦術演算</p>
+        </div>
+
+        <div class="drone-grid">
+            <div class="drone-card">
+                <span class="material-symbols-outlined icon-large">radar</span>
+                <div class="num-large">500</div>
+                <div class="text-small zh">锁定军事目标总数</div>
+                <div class="text-small ja">ロックオン済軍事目標総数</div>
+            </div>
+
+            <div class="drone-card">
+                <span class="material-symbols-outlined icon-large">flight_takeoff</span>
+                <div class="num-large">53,000</div>
+                <div class="text-small zh">单目标/单日分配 FPV 架次</div>
+                <div class="text-small ja">1目標/1日あたりFPV割り当て数</div>
+            </div>
+
+            <div class="drone-card">
+                <span class="material-symbols-outlined icon-large">timer</span>
+                <div class="num-large">36</div>
+                <div class="text-small zh">每分钟不间断打击架次</div>
+                <div class="text-small ja">毎分絶え間ない攻撃機数</div>
+            </div>
+
+            <div class="drone-card">
+                <span class="material-symbols-outlined icon-large">all_inclusive</span>
+                <div class="num-large">24/7</div>
+                <div class="text-small zh">全天候无死角补充压制</div>
+                <div class="text-small ja">24時間無休の補充制圧</div>
+            </div>
+        </div>
+
+        <div class="conclusion">
+            <h2 class="zh">珍惜和平</h2>
+            <h2 class="ja">平和を大切に</h2>
+            <p class="zh" style="margin-top: 15px; opacity: 0.8; font-size: 1.1rem;">第二天，又会有 53,000 架…</p>
+            <p class="ja" style="margin-top: 15px; opacity: 0.8; font-size: 1.1rem;">翌日には、さらに53,000機が補充される…</p>
+        </div>
+    </section>
+
+    <script>
+        // 语言切换逻辑
+        function toggleLanguage() {
+            document.body.classList.toggle('lang-ja');
+        }
+    </script>
+</body>
+</html>
