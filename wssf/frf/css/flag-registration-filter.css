@@ -1,0 +1,369 @@
+/* --- 全局变量与重置 --- */
+:root {
+    --navy-deep: #001529;
+    --navy-light: #00284d;
+    --gold: #D4AF37;
+    --gold-hover: #F4D03F;
+    --white: #FFFFFF;
+    --text-gray: #a0a0a0;
+    --disabled-gray: #3a4b5e;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--navy-deep);
+    color: var(--white);
+    font-family: "PingFang SC", "Microsoft YaHei", "Heiti SC", "SimHei", Impact, sans-serif;
+    font-weight: 700; /* 默认粗体 */
+    line-height: 1.5;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* --- 布局容器 --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 顶部区域 --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    margin: 0;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.filter-toggle-btn {
+    background-color: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-toggle-btn:hover {
+    background-color: var(--white);
+}
+
+/* --- 筛选面板区域 --- */
+#filter-panel {
+    background-color: var(--navy-light);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    display: none; /* 默认隐藏 */
+}
+
+#filter-panel.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+.step-block {
+    margin-bottom: 25px;
+    border-left: 4px solid var(--disabled-gray); /* 默认灰色，激活变金 */
+    padding-left: 15px;
+    opacity: 0.3; /* 默认半透明 */
+    pointer-events: none; /* 默认不可点 */
+    transition: all 0.5s ease;
+    display: none; /* 默认不显示，JS控制显示 */
+}
+
+/* 第一步默认显示 */
+#step-A {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    border-left-color: var(--gold);
+}
+
+.step-block.visible {
+    display: block;
+    animation: slideDown 0.5s forwards;
+}
+
+.step-block.active-step {
+    opacity: 1;
+    pointer-events: auto;
+    border-left-color: var(--gold);
+}
+
+.step-title {
+    color: var(--gold);
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.options-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 筛选按钮样式 */
+.opt-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.opt-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background-color: rgba(212, 175, 55, 0.05);
+}
+
+.opt-btn.selected {
+    background-color: var(--gold);
+    color: var(--navy-deep);
+    border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.opt-btn.parent-active {
+    border-color: var(--gold);
+    color: var(--gold);
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* 二级菜单容器 */
+.sub-options {
+    display: none; /* 默认隐藏 */
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(0, 21, 41, 0.5); /* 更深的背景 */
+    border-radius: 8px;
+    width: 100%;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.sub-options.show {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    animation: fadeIn 0.3s;
+}
+
+/* --- 结果展示区域 --- */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+.results-count {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.flags-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: auto; /* Push footer down */
+}
+
+/* 国旗按钮卡片 */
+.flag-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    text-decoration: none;
+}
+
+.flag-card:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.flag-icon {
+    font-size: 24px;
+    line-height: 1;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
+
+.flag-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+.flag-name span {
+    font-size: 12px;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+/* 隐藏动画 */
+.hidden {
+    display: none !important;
+}
+
+/* 没钱的彩蛋样式 */
+#no-money-message {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--gold);
+    display: none;
+}
+
+#no-money-message i {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+#no-money-message h2 {
+    font-size: 24px;
+}
+
+.reset-hint {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-left: 10px;
+    font-weight: 400;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.step-block.active-step .reset-hint {
+    opacity: 1;
+}
+
+/* --- 页尾样式 --- */
+footer {
+    margin-top: 50px;
+    padding: 30px 0 20px 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gold);
+    border-radius: 50px;
+    color: var(--gold);
+    font-size: 15px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-btn:hover {
+    background: var(--gold);
+    color: var(--navy-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.footer-btn i {
+    font-size: 20px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: var(--text-gray);
+    font-weight: 400;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+}
+
+/* --- 移动端适配 --- */
+@media (max-width: 768px) {
+    .flags-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .step-title {
+        font-size: 16px;
+    }
+    .opt-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-btn {
+        width: 100%;
+        justify-content: center;
+        max-width: 300px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
