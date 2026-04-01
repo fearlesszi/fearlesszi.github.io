@@ -1,0 +1,242 @@
+/* --- 全局变量与重置 --- */
+:root {
+    --navy-deep: #001529;
+    --navy-light: #00284d;
+    --gold: #D4A137;
+    --gold-hover: #F4D03F;
+    --white: #FFFFFF;
+    --text-gray: #a0a0a0;
+    --disabled-gray: #3a4b5e;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--navy-deep);
+    color: var(--white);
+    font-family: "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* --- 布局容器 --- */
+.container {
+    max-width: 1400px; /* 导航站可以稍微宽一点 */
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 顶部区域 --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo svg {
+    display: block;
+}
+
+.header-title {
+    color: var(--text-gray);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* --- 左右分栏主体 --- */
+.main-body {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1;
+}
+
+/* 左侧栏 */
+.sidebar {
+    width: 200px; /* 左列较小尺寸固定 */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 左侧菜单按钮 (复用并修改你的 opt-btn) */
+.menu-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    padding: 12px 20px;
+    border-radius: 8px; /* 导航菜单用稍方的圆角更合适 */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background-color: rgba(212, 175, 55, 0.05);
+}
+
+.menu-btn.active {
+    background-color: var(--gold);
+    color: var(--navy-deep);
+    border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* 右侧内容区 */
+.content {
+    flex-grow: 1;
+    background-color: var(--navy-light);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+    padding-bottom: 15px;
+}
+
+.category-header h2 {
+    margin: 0;
+    color: var(--gold);
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.results-count {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+/* --- 品牌卡片网格 --- */
+.brands-container {
+    display: grid;
+    /* 右侧自适应：每列最小 200px，自动填满剩余空间 */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* 品牌卡片 (复用你的 flag-card 悬浮特效) */
+.brand-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    text-decoration: none;
+}
+
+.brand-card:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+}
+
+/* 16:9 Logo 图片控制 */
+.brand-logo-wrapper {
+    width: 100%;
+    max-width: 200px; /* 限制最大宽度 200px */
+    border-radius: 6px; /* 小圆角 */
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: #ffffff; /* 如果某些Logo是透明底，白色背景最百搭，可根据需要改 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保证 Logo 完整显示，如果想要填满可以换成 cover */
+    transition: transform 0.3s;
+}
+
+.brand-card:hover .brand-logo {
+    transform: scale(1.05); /* 鼠标悬浮Logo轻微放大 */
+}
+
+.brand-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 文字过长显示省略号 */
+}
+
+/* --- 页尾 --- */
+footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 12px;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+/* --- 移动端自适应 --- */
+@media (max-width: 768px) {
+    .main-body {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto; /* 手机端左列变横向滑动菜单 */
+        padding-bottom: 10px;
+    }
+    
+    .menu-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+
+    .brands-container {
+        /* 手机端允许一行放两个稍微小点的或者单列，看你喜好。这里设为自适应 */
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    }
+}

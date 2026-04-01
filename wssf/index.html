@@ -3,141 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="author" content="子正 Fearless Zi PAOGE.me">
-    <meta name="description" content="全球帆船游艇注册地智能筛选器 - 船旗方便旗选择指南">
-    <meta name="keywords" content="帆船, 游艇, 船旗注册, 方便旗, 环球航行, WSSF!, 子正, Fearless Zi, PAOGE.me">
-    <title>全球帆船船旗注册筛选器 | PAOGE.me</title>
-    <link rel="icon" href="https://paoge.me/wp-content/uploads/2025/04/cropped-favicon-32x32.png" sizes="32x32">
-    <link rel="icon" href="https://paoge.me/wp-content/uploads/2025/04/cropped-favicon-192x192.png" sizes="192x192">
-    <link rel="apple-touch-icon" href="https://paoge.me/wp-content/uploads/2025/04/cropped-favicon-180x180.png">
-    <meta name="msapplication-TileImage" content="https://paoge.me/wp-content/uploads/2025/04/cropped-favicon-270x270.png">
-    <!-- 引入 FontAwesome -->
+    <title>WSSF!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 引入外部CSS文件 -->
-    <link rel="stylesheet" href="css/flag-registration-filter.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="container">
+<div class="container layout-container">
     <header>
         <div class="logo">
-            <h1><i class="fa-solid fa-font-awesome-flag"></i> 全球船旗注册筛选</h1>
+            <svg width="200" height="auto" viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                <path d="M500.818,138.189C510.474,138.189 518.506,130.584 518.506,120.928C518.506,111.358 510.474,103.24 500.647,103.24C491.162,103.24 483.13,110.931 483.13,120.586C483.13,130.328 491.077,138.189 500.818,138.189Z" fill="rgb(212,161,55)"/>
+                <path d="M209.581,138.189C239.034,138.189 259.522,122.789 259.522,98.577C259.522,78.153 245.18,66.953 222.387,56.577C206.593,49.412 196.178,46.694 196.178,38.788C196.178,31.953 203.861,26.188 214.191,26.188C221.874,26.188 229.814,29.4 233.911,37.306L254.315,23.553C248.083,7.494 232.545,-0 213.764,-0C188.495,-0 168.348,15.153 168.348,38.13C168.348,59.294 185.336,67.447 200.788,74.859C215.216,81.777 231.692,89.436 231.692,99.153C231.692,106.236 222.984,111.342 210.008,111.342C198.142,111.342 189.349,107.059 183.288,97.671L161.177,112.659C170.397,129.13 187.044,138.189 209.581,138.189ZM317.488,138.189C346.94,138.189 367.429,122.789 367.429,98.577C367.429,78.153 353.087,66.953 330.293,56.577C314.5,49.412 304.085,46.694 304.085,38.788C304.085,31.953 311.768,26.188 322.098,26.188C329.781,26.188 337.72,29.4 341.818,37.306L362.221,23.553C355.989,7.494 340.452,-0 321.671,-0C296.402,-0 276.254,15.153 276.254,38.13C276.254,59.294 293.243,67.447 308.695,74.859C323.122,81.777 339.598,89.436 339.598,99.153C339.598,106.236 330.891,111.342 317.915,111.342C306.048,111.342 297.255,107.059 291.194,97.671L269.083,112.659C278.303,129.13 294.95,138.189 317.488,138.189ZM44.819,137.201L46.355,137.201L80.418,65.059L114.992,137.201L116.614,137.201L161.433,2.8L131.554,2.8L110.468,69.671L81.015,3.294L80.503,3.294L50.965,69.753L29.794,2.8L0,2.8L44.819,137.201ZM467.14,29.071L467.14,2.471L384.161,2.471L384.161,135.718L411.821,135.718L411.821,82.436L459.286,82.436L459.286,55.836L411.821,55.836L411.821,29.071L467.14,29.071ZM488.738,89.683L511.788,89.683L516.142,2.8L484.214,2.8L488.738,89.683Z" fill="white"/>
+            </svg>
         </div>
-        <button class="filter-toggle-btn" id="start-btn" onclick="toggleFilter()">
-            <i class="fa-solid fa-filter"></i> 开始按需求筛选
-        </button>
+        <div class="header-title">Where Sails Sway Free!</div>
     </header>
 
-    <!-- 筛选面板 -->
-    <div id="filter-panel">
-        
-        <!-- Step A: 身份 -->
-        <div class="step-block" id="step-A">
-            <div class="step-title">
-                <i class="fa-solid fa-passport"></i> 您的护照或居住权
-                <span class="reset-hint">(点击修改重新筛选)</span>
-            </div>
-            <div class="options-grid">
-                <button class="opt-btn" onclick="handleSelection('A', 'cn', this)">仅持有中华人民共和国护照</button>
-                <button class="opt-btn" onclick="handleSelection('A', 'hk_mo', this)">中国香港/澳门 (居住权)</button>
-                <button class="opt-btn" onclick="handleSelection('A', 'tw', this)">中国台湾 (中华民国护照)</button>
-                <button class="opt-btn has-sub" onclick="toggleSubMenu('A4-sub', this)">其他国家护照/永居 <i class="fa-solid fa-caret-down"></i></button>
+    <div class="main-body">
+        <aside class="sidebar" id="sidebar-menu">
+            </aside>
+
+        <main class="content">
+            <div class="category-header">
+                <h2 id="current-category-title"><i class="fa-solid fa-sailboat"></i> 单体帆船</h2>
+                <span class="results-count" id="count-display">共 10 个项目</span>
             </div>
             
-            <!-- A Sub Menu -->
-            <div id="A4-sub" class="sub-options">
-                <button class="opt-btn" onclick="handleSelection('A', 'foreign_asia', this)">亚洲地区</button>
-                <button class="opt-btn" onclick="handleSelection('A', 'foreign_eu', this)">欧洲地区</button>
-                <button class="opt-btn" onclick="handleSelection('A', 'foreign_oceania', this)">大洋洲</button>
-                <button class="opt-btn" onclick="handleSelection('A', 'foreign_na', this)">北美洲</button>
-                <button class="opt-btn" onclick="handleSelection('A', 'foreign_sa', this)">南美洲</button>
-                <button class="opt-btn" onclick="handleSelection('A', 'foreign_af', this)">非洲</button>
-            </div>
-        </div>
-
-        <!-- Step B: 目的 -->
-        <div class="step-block" id="step-B">
-            <div class="step-title">
-                <i class="fa-solid fa-compass"></i> 航行需求与目的
-            </div>
-            <div class="options-grid">
-                <button class="opt-btn" onclick="handleSelection('B', 'global', this)">环球跨洋航行</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'local', this)">所在地领海航行</button>
-                <button class="opt-btn has-sub" onclick="toggleSubMenu('B3-sub', this)">有明确热爱的区域 <i class="fa-solid fa-caret-down"></i></button>
-            </div>
-
-            <!-- B Sub Menu -->
-            <div id="B3-sub" class="sub-options">
-                <button class="opt-btn" onclick="handleSelection('B', 'region_cn', this)">中国领海</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_zanzibar', this)">桑给巴尔群岛</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_florida', this)">佛罗里达/美国</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_riviera', this)">地中海/蔚蓝海岸</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_nz', this)">新西兰/南太</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_turkey', this)">土耳其南部海岸</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_greece', this)">希腊群岛</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_carib', this)">加勒比海</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_alaska', this)">阿拉斯加/BC省</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_ph', this)">菲律宾群岛</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_malacca', this)">马六甲/东南亚</button>
-                <button class="opt-btn" onclick="handleSelection('B', 'region_thai', this)">泰国湾</button>
-            </div>
-        </div>
-
-        <!-- Step C: 消费 -->
-        <div class="step-block" id="step-C">
-            <div class="step-title">
-                <i class="fa-solid fa-coins"></i> 消费态度与预算
-            </div>
-            <div class="options-grid">
-                <button class="opt-btn" onclick="handleSelection('C', 'rich', this)">我不差钱 (尊贵首选)</button>
-                <button class="opt-btn" onclick="handleSelection('C', 'smart', this)">不差钱但求合理 (高性价比DIY)</button>
-                <button class="opt-btn" onclick="handleSelection('C', 'budget', this)">缺钱需极致性价比 (最简最廉)</button>
-                <button class="opt-btn" onclick="handleSelection('C', 'no_money', this)">我没钱</button>
-            </div>
-        </div>
+            <div class="brands-container" id="brands-grid">
+                </div>
+        </main>
     </div>
-
-    <!-- 结果展示 -->
-    <div class="results-header">
-        <span>可用注册地列表</span>
-        <span class="results-count" id="count-display"></span>
-    </div>
-
-    <div id="no-money-message">
-        <i class="fa-solid fa-face-laugh-beam"></i>
-        <h2>这是好事啊！</h2>
-        <p>一键三连赶快赚钱！2026马上有钱！</p>
-    </div>
-
-    <div class="flags-container" id="flags-grid">
-        <!-- JS将自动填充这里 -->
-    </div>
-
-    <!-- 页尾区域 -->
+    
     <footer>
-        <div class="footer-links">
-            <a href="https://i.paoge.me/" target="_blank" class="footer-btn">
-                <i class="fa-solid fa-hand-holding-dollar"></i> <!-- 打赏/赞赏图标 -->
-                <span>必须前去赏他个三瓜俩枣</span>
-            </a>
-            <a href="https://wheresailsswayfree.com/" target="_blank" class="footer-btn">
-                <i class="fa-solid fa-laptop"></i> <!-- 媒体/视频图标 -->
-                <span>支持航海媒体 WSSF!</span>
-            </a>
-            <a href="https://space.bilibili.com/14250509" target="_blank" class="footer-btn">
-                <i class="fa-brands fa-bilibili"></i> <!-- 媒体/视频图标 -->
-                <span>哔哩哔哩关注分享一波</span>
-            </a>
-        </div>
         <div class="copyright">
-            子正WSSF! 抽象奉献
-            &copy; 2026 PAOGE.me. All Rights Reserved.
+            子正 WSSF! 抽象奉献 &copy; 2026 PNUO.com All Rights Reserved.
         </div>
     </footer>
 </div>
 
-<!-- 引入外部JS文件 -->
-<script src="js/flag-registration-filter.js"></script>
-
+<script src="js/app.js"></script>
 </body>
 </html>
