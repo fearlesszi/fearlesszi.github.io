@@ -235,7 +235,9 @@ let database = [
     { category: 'show', name: 'Shanghai International Boat Show', logo: 'images/cibs.jpg', link: 'https://www.boatshowchina.com/' },
     { category: 'show', name: 'Dubai International Boat Show', logo: 'images/Dubai-International-Boat-Show.jpg', link: 'https://www.boatshowdubai.com/' },
     // 其他
-    { category: 'other', name: '船旗注册筛选器', logo: 'images/flagofregistry.jpg', link: 'https://pnuo.com/wssf/frf/' }
+    { category: 'other', name: '船旗注册筛选器', logo: 'images/flagofregistry.jpg', link: 'https://pnuo.com/wssf/frf/' },
+    { category: 'other', name: 'Marine Traffic', logo: 'images/marinetraffic.jpg', link: 'https://marinetraffic.com/' },
+    { category: 'other', name: 'Sailboat Data', logo: 'images/sailboatdata.jpg', link: 'https://sailboatdata.com/' }
 ];
 
 // --- 3. 核心逻辑：渲染与切换 ---
