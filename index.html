@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>数字资产构建者 | Digital Asset Builder | PNUO</title>
+    <meta name="description" content="为个人与组织构建可沉淀、可传承、可增值的数字资产，通过感知、表达、资产数字化三大核心能力，创造永续的数字生命与价值体系。Build accumulable, inheritable, and appreciable digital assets for individuals and organizations. Through the three core capabilities of perception, expression, and asset digitization, we create sustainable digital life and value systems.">
+    <meta name="keywords" content="digital asset, 数字资产, AI, 人工智能, Agent, 智能体, digital transformation, 数字化转型, asset digitization, 资产数字化, personal brand, 个人品牌, digital inheritance, 数字传承, knowledge system, 知识体系, value creation, 价值创造">
+    <meta name="author" content="子正 | Fearless Zi">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Tailwind CSS (CDN for development only) -->
+    <script>
+        if (typeof console !== 'undefined' && console.warn) {
+            const originalWarn = console.warn;
+            console.warn = function(...args) {
+                if (args[0] && typeof args[0] === 'string' && args[0].includes('tailwindcss.com')) {
+                    return;
+                }
+                originalWarn.apply(console, args);
+            };
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="android-touch-icon" href="android-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="PNUO">
+    <meta name="application-name" content="PNUO">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="数字资产构建者 | Digital Asset Builder">
+    <meta property="og:description" content="为个人与组织构建可沉淀、可传承、可增值的数字资产。">
+    <meta property="og:image" content="share-cover.jpg">
+    <meta property="og:url" content="https://pnuo.com">
+    <meta property="og:site_name" content="PNUO Digital Asset">
+    <meta name="weixin:share-type" content="web">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="body-main" data-theme="dark" data-lang="en" data-dir="ltr">
+
+    <!-- Loading Screen -->
+    <div class="loader-screen" id="loader">
+        <div class="loader-content">
+            <div class="loader-code-text">
+                <div class="code-line" data-line="1">const portfolio = {</div>
+                <div class="code-line" data-line="2">  loading: true,</div>
+                <div class="code-line" data-line="3">  status: 'initializing...'</div>
+                <div class="code-line" data-line="4">};</div>
+            </div>
+            <div class="loader-spinner-wrapper">
+                <div class="loader-spinner"></div>
+            </div>
+            <div class="loader-progress-wrapper">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-percentage" id="loaderPercent">0%</div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="main-header" id="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">PNUO</span>
+                    <span class="logo-bracket">/ &gt;</span>
+                </div>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text" data-text-en="Home" data-text-zh="首页">Home</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-text" data-text-en="About" data-text-zh="关于">About</span>
+                </a>
+                <a href="#capabilities" class="nav-link" data-section="capabilities">
+                    <i class="fas fa-code"></i>
+                    <span class="nav-text" data-text-en="Capabilities" data-text-zh="能力">Capabilities</span>
+                </a>
+                <a href="#clarification" class="nav-link" data-section="clarification">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="nav-text" data-text-en="Clarification" data-text-zh="认知澄清">Clarification</span>
+                </a>
+                <a href="#serviceAreas" class="nav-link" data-section="serviceAreas">
+                    <i class="fas fa-rocket"></i>
+                    <span class="nav-text" data-text-en="Service Areas" data-text-zh="服务领域">Service Areas</span>
+                </a>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span class="nav-text" data-text-en="Contact" data-text-zh="联系">Contact</span>
+                </a>
+            </div>
+
+            <div class="nav-controls">
+                <button class="lang-toggle" id="langToggle" title="Toggle Language">
+                    <i class="fas fa-language"></i>
+                    <span class="lang-text">中</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-background">
+                <div class="code-grid-bg"></div>
+                <div class="floating-particles" id="particles"></div>
+            </div>
+
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-greeting">
+                        <span class="greeting-text" data-text-en="In the Age of AI" data-text-zh="在算法时代">In the Age of AI</span>
+                        <span class="greeting-cursor">|</span>
+                    </div>
+
+                    <h1 class="hero-name" id="heroName">
+                        <span class="name-prefix">const</span>
+                        <span class="name-operator">=</span>
+                        <span class="name-value" data-text-en="DigitalAsset" data-text-zh="数字资产">DigitalAsset</span>
+                        <span class="name-suffix">;</span>
+                    </h1>
+
+                    <div class="hero-title">
+                        <span class="title-prefix">//</span>
+                        <span class="title-text" data-text-en="Digital Asset Builder" data-text-zh="数字资产构建者">Digital Asset Builder</span>
+                    </div>
+
+                    <p class="hero-description" data-text-en="Build cultivate able, inheritable digital existence for individuals and organizations. " data-text-zh="为个体与组织构建可沉淀、可传承的数字生命。">
+                        Build cultivate able, inheritable digital existence for individuals and organizations.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span data-text-en="Start Building" data-text-zh="开始构建">Start Building</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#serviceAreas" class="btn btn-secondary">
+                            <span data-text-en="Our Services" data-text-zh="了解服务">Our Services</span>
+                            <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero-social">
+                        <a href="https://github.com/fearlesszi" target="_blank" class="social-icon" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/fearless/" target="_blank" class="social-icon" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://x.com/fearlesszi" target="_blank" class="social-icon" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://medium.com/@fearlesszi" target="_blank" class="social-icon" title="Medium">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                        <a href="https://t.me/fearlesszi" target="_blank" class="social-icon" title="Telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-container">
+                        <div class="profile-image-glow"></div>
+                        <div class="profile-image-frame">
+                            <div class="profile-image" id="profileImage">
+                                <div class="profile-placeholder">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-1">
+                            <i class="fas fa-brain"></i>
+                            <div class="badge-content">
+                                <span class="badge-title" data-text-en="Perception" data-text-zh="感知">Perception</span>
+                                <span class="badge-libs" data-text-en="See the Unseen" data-text-zh="看见被忽略的">See the Unseen</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i class="fas fa-bullhorn"></i>
+                            <div class="badge-content">
+                                <span class="badge-title" data-text-en="Expression" data-text-zh="表达">Expression</span>
+                                <span class="badge-libs" data-text-en="Deliver the Value" data-text-zh="传递不可替代的">Deliver the Value</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-3">
+                            <i class="fas fa-microchip"></i>
+                            <div class="badge-content">
+                                <span class="badge-title" data-text-en="Digitization" data-text-zh="资产数字化">Digitization</span>
+                                <span class="badge-libs" data-text-en="Preserve the Eternal" data-text-zh="沉淀永续的">Preserve the Eternal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span class="scroll-text" data-text-en="Scroll Down" data-text-zh="向下滚动">Scroll Down</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="About" data-text-zh="关于">About</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text-wrapper">
+                        <div class="about-intro">
+                            <p class="about-text" data-text-en="Today, algorithms amplify noise and drown out truth. Perception lets you see real needs beneath the data. Expression lets you convey unique value that AI cannot replicate. Digitization turns your intangible experience into permanent assets that outlive time." data-text-zh="今天，算法放大噪音，淹没真相。感知让你看见数据之下的真实需求；表达让你传递 AI 无法复刻的独特价值；资产数字化让你把无形的经验，转化为超越时间的永续资产。">
+                                Today, algorithms amplify noise and drown out truth. Perception lets you see real needs beneath the data. Expression lets you convey unique value that AI cannot replicate. Digitization turns your intangible experience into permanent assets that outlive time.
+                            </p>
+                        </div>
+
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="94">0</div>
+                                <div class="stat-label" data-text-en="Projects" data-text-zh="项目">Projects</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="9">0</div>
+                                <div class="stat-label" data-text-en="Years Experience" data-text-zh="经验年限">Years Experience</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="69">0</div>
+                                <div class="stat-label" data-text-en="Happy Clients" data-text-zh="满意客户">Happy Clients</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-image-wrapper">
+                        <div class="about-image-container">
+                            <div class="code-block">
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span><span class="code-variable">CoreCycle</span><span class="code-operator">=</span><span class="code-brace">{</span>
+                                </div>
+                                <div class="code-line indent">
+                                    <span class="code-property">Perception</span><span class="code-operator">:</span><span class="code-brace">{</span><span class="code-property">conditions</span><span class="code-operator">:</span><span class="code-bracket">[</span><span class="code-string">'Focus'</span><span class="code-comma">,</span><span class="code-string">'Curiosity'</span><span class="code-comma">,</span><span class="code-string">'Input'</span><span class="code-bracket">]</span><span class="code-comma">,</span><span class="code-property">input</span><span class="code-operator">:</span><span class="code-string">'Raw Info'</span><span class="code-comma">,</span><span class="code-property">output</span><span class="code-operator">:</span><span class="code-string">'Cognition'</span><span class="code-comma">,</span><span class="code-property">value</span><span class="code-operator">:</span><span class="code-string">'Wisdom Base'</span><span class="code-brace">}</span><span class="code-comma">,</span>
+                                </div>
+                                <div class="code-line indent">
+                                    <span class="code-property">Expression</span><span class="code-operator">:</span><span class="code-brace">{</span><span class="code-property">conditions</span><span class="code-operator">:</span><span class="code-bracket">[</span><span class="code-string">'Logic'</span><span class="code-comma">,</span><span class="code-string">'Empathy'</span><span class="code-comma">,</span><span class="code-string">'Tools'</span><span class="code-bracket">]</span><span class="code-comma">,</span><span class="code-property">input</span><span class="code-operator">:</span><span class="code-string">'Cognition'</span><span class="code-comma">,</span><span class="code-property">output</span><span class="code-operator">:</span><span class="code-string">'Value'</span><span class="code-comma">,</span><span class="code-property">value</span><span class="code-operator">:</span><span class="code-string">'Connection & Influence'</span><span class="code-brace">}</span><span class="code-comma">,</span>
+                                </div>
+                                <div class="code-line indent">
+                                    <span class="code-property">Digitization</span><span class="code-operator">:</span><span class="code-brace">{</span><span class="code-property">conditions</span><span class="code-operator">:</span><span class="code-bracket">[</span><span class="code-string">'Storage'</span><span class="code-comma">,</span><span class="code-string">'Metadata'</span><span class="code-comma">,</span><span class="code-string">'Will'</span><span class="code-bracket">]</span><span class="code-comma">,</span><span class="code-property">input</span><span class="code-operator">:</span><span class="code-string">'Value'</span><span class="code-comma">,</span><span class="code-property">output</span><span class="code-operator">:</span><span class="code-string">'Digital Assets'</span><span class="code-comma">,</span><span class="code-property">value</span><span class="code-operator">:</span><span class="code-string">'Monetize & Leverage'</span><span class="code-brace">}</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-brace">}</span><span class="code-semicolon">;</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span><span class="code-variable">LifeOutcome</span><span class="code-operator">=</span><span class="code-operator">(</span><span class="code-variable">c</span><span class="code-operator">)</span><span class="code-operator">=&gt;</span> <span class="code-brace">{</span><span class="code-property">Wealth</span><span class="code-operator">:</span><span class="code-variable">c</span><span class="code-operator">.</span><span class="code-property">Digitization</span><span class="code-operator">.</span><span class="code-property">value</span><span class="code-comma">,</span><span class="code-property">Wisdom</span><span class="code-operator">:</span><span class="code-variable">c</span><span class="code-operator">.</span><span class="code-property">Perception</span><span class="code-operator">.</span><span class="code-property">value</span><span class="code-comma">,</span><span class="code-property">Freedom</span><span class="code-operator">:</span><span class="code-string">'Passive & Scalable'</span><span class="code-brace">}</span><span class="code-semicolon">;</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span><span class="code-variable">WorldOutcome</span><span class="code-operator">=</span><span class="code-operator">(</span><span class="code-operator">)</span><span class="code-operator">=&gt;</span> <span class="code-brace">{</span><span class="code-property">Legacy</span><span class="code-operator">:</span><span class="code-string">'Thought Inheritance'</span><span class="code-comma">,</span><span class="code-property">Ripple</span><span class="code-operator">:</span><span class="code-string">'Positive Ripple'</span><span class="code-brace">}</span><span class="code-semicolon">;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities Section -->
+        <section id="capabilities" class="section capabilities-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Capabilities" data-text-zh="核心能力">Capabilities</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="capabilities-grid">
+                    <div class="capability-category">
+                        <h3 class="category-title" data-text-en="Perception" data-text-zh="感知">Perception</h3>
+                        <div class="capability-items">
+                            <div class="capability-item" data-percent="96">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Demand Decoding" data-text-zh="需求解码">Demand Decoding </span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                            <div class="capability-item" data-percent="89">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Signal Recognition" data-text-zh="信号识别">Signal Recognition</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                            <div class="capability-item" data-percent="84">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Trend Anticipation" data-text-zh="趋势预判">Trend Anticipation</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                            <div class="capability-item" data-percent="120">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Value Refinement" data-text-zh="价值提炼">Value Refinement</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="capability-category">
+                        <h3 class="category-title" data-text-en="Expression" data-text-zh="表达">Expression</h3>
+                        <div class="capability-items">
+                            <div class="capability-item" data-percent="94">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Text Architecture" data-text-zh="文本构建">Text Architecture</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                            <div class="capability-item" data-percent="91">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Visual Narrative" data-text-zh="视觉叙事">Visual Narrative</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                            <div class="capability-item" data-percent="99">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Logic Framing" data-text-zh="逻辑架构">Logic Framing</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                            <div class="capability-item" data-percent="98">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Emotion Transmission" data-text-zh="情绪传递">Emotion Transmission</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="capability-category">
+                        <h3 class="category-title" data-text-en="Digitizations" data-text-zh="资产数字化">Digitization</h3>
+                        <div class="capability-items">
+                            <div class="capability-item" data-percent="99">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Structured Precipitation" data-text-zh="结构化沉淀">Structured Precipitation</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                            <div class="capability-item" data-percent="89">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Permanent Storage" data-text-zh="永续存储">Permanent Storage</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                            <div class="capability-item" data-percent="100">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Permission Management" data-text-zh="权限管理">Permission Management</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                            <div class="capability-item" data-percent="86">
+                                <div class="capability-header">
+                                    <span class="capability-name" data-text-en="Value Realization" data-text-zh="价值变现">Value Realization</span>
+                                    <span class="capability-percent">0%</span>
+                                </div>
+                                <div class="capability-bar">
+                                    <div class="capability-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clarification Section -->
+        <section id="clarification" class="section clarification-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Clarification" data-text-zh="认知澄清">Clarification</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-year">2021 - Present</div>
+                                <div class="timeline-badge">Common</div>
+                            </div>
+                            <h3 class="timeline-title" data-text-en="Common Misconception" data-text-zh="普遍误解">Common Misconception</h3>
+                            <div class="timeline-company">
+                                <i class="fas fa-exclamation-circle"></i>
+                                AI will replace everything
+                            </div>
+                            <p class="timeline-description" data-text-en="Most people think AI can replace all mental work, but they ignore the core: human unique perception and judgment." data-text-zh="很多人认为 AI 可以替代所有脑力劳动，却忽略了最核心的本质：人独有的感知与判断。">
+                                Most people think AI can replace all mental work, but they ignore the core: human unique perception and judgment.
+                            </p>
+                            <div class="timeline-achievements">
+                                <div class="achievement-item">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span data-text-en="Mistake tools for abilities" data-text-zh="将工具等同于能力">Mistake tools for abilities</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span data-text-en="Pursue speed over quality" data-text-zh="追求速度忽略质量">Pursue speed over quality</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span data-text-en="Confuse content with assetss" data-text-zh="将内容视为资产">Confuse content with assets</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-year">2026</div>
+                                <div class="timeline-badge">Act immediately</div>
+                            </div>
+                            <h3 class="timeline-title" data-text-en="What You Should Do" data-text-zh="你应该做什么">What You Should Do</h3>
+                            <div class="timeline-company">
+                                <i class="fas fa-running"></i>
+                                Be the master of tools
+                            </div>
+                            <p class="timeline-description" data-text-en="AI is an amplifier, not a replacement. You need to extract your unique experience and let AI become your extension." data-text-zh="AI 是放大器，不是替代品。你需要做的是提炼你的独特经验，让 AI 成为你的延伸。">
+                                AI is an amplifier, not a replacement. You need to extract your unique experience and let AI become your extension.
+                            </p>
+                            <div class="timeline-achievements">
+                                <div class="achievement-item">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span data-text-en="Anchor your core value" data-text-zh="锚定你的核心价值">Anchor your core value</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span data-text-en="Establish standardized processes" data-text-zh="建立标准化流程">Establish standardized processes</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span data-text-en="Let tools work for you" data-text-zh="让工具为你工作">Let tools work for you</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">SASS</span>
+                                <span class="tag">Webpack</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-year">2026 & What's to Come</div>
+                            </div>
+                            <h3 class="timeline-title" data-text-en="What You Will Get" data-text-zh="你将会得到什么">What You Will Get</h3>
+                            <div class="timeline-company">
+                                <i class="fas fa-coins"></i>
+                                Gain permanent digital assets
+                            </div>
+                            <p class="timeline-description" data-text-en="When your experience becomes structured digital assets, you will no longer be limited by time and space, and achieve continuous compounding of value." data-text-zh="当你的经验转化为结构化的数字资产，你将不再受时间和空间的限制，实现价值的持续复利。">
+                                When your experience becomes structured digital assets, you will no longer be limited by time and space, and achieve continuous compounding of value.
+                            </p>
+                            <div class="timeline-achievements">
+                                <div class="achievement-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <span data-text-en="Replicable service capabilities" data-text-zh="可复制的服务能力">Replicable service capabilities</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <span data-text-en="Passive income streams" data-text-zh="被动的收入来源">Passive income streams</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <span data-text-en="Irreplaceable digital identity" data-text-zh="不可替代的数字身份">Irreplaceable digital identity</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">jQuery</span>
+                                <span class="tag">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Areas Section -->
+        <section id="serviceAreas" class="section serviceAreas-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Service Areas" data-text-zh="服务领域">Service Areas</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="serviceAreas-grid">
+                    <div class="serviceArea-card">
+                        <div class="serviceArea-image">
+                            <div class="serviceArea-overlay">
+                                <div class="serviceArea-links">
+                                    <a href="#" class="serviceArea-link" title="View Project">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="serviceArea-link" title="View Code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="serviceArea-placeholder">
+                                <i class="fas fa-feather"></i>
+                            </div>
+                        </div>
+                        <div class="serviceArea-content">
+                            <h3 class="serviceArea-title" data-text-en="Content Creation" data-text-zh="内容创作体系">Content Creation</h3>
+                            <p class="serviceArea-description" data-text-en="Build a full-process content production system from topic selection to publication, achieving stable output of high-quality content." data-text-zh="构建从选题到发布的全流程内容生产体系，实现高质量内容的稳定输出。">
+                                Build a full-process content production system from topic selection to publication, achieving stable output of high-quality content.
+                            </p>
+                            <div class="serviceArea-tags">
+                                <span class="tag" data-text-en="Marketing" data-text-zh="营销">Marketing</span>
+                                <span class="tag" data-text-en="Education" data-text-zh="教育">Education</span>
+                                <span class="tag" data-text-en="Film" data-text-zh="电影">Film</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="serviceArea-card">
+                        <div class="serviceArea-image">
+                            <div class="serviceArea-overlay">
+                                <div class="serviceArea-links">
+                                    <a href="#" class="serviceArea-link" title="View Project">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="serviceArea-link" title="View Code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="serviceArea-placeholder">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                        </div>
+                        <div class="serviceArea-content">
+                            <h3 class="serviceArea-title" data-text-en="Automated Workflow" data-text-zh="自动化工作流">Automated Workflow</h3>
+                            <p class="serviceArea-description" data-text-en="Transform repetitive mental labor into automated processes, freeing your time and energy to focus on the most valuable strategic thinking." data-text-zh="将重复性的脑力劳动转化为自动化流程，释放你的时间和精力，专注核心的战略思考。">
+                                Transform repetitive mental labor into automated processes, freeing your time and energy to focus on the most valuable strategic thinking.
+                            </p>
+                            <div class="serviceArea-tags">
+                                <span class="tag" data-text-en="E-commerce" data-text-zh="电子商务">E-commerce</span>
+                                <span class="tag" data-text-en="Industrial" data-text-zh="工业制造业">Industrial</span>
+                                <span class="tag" data-text-en="Health" data-text-zh="医疗">Health</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="serviceArea-card">
+                        <div class="serviceArea-image">
+                            <div class="serviceArea-overlay">
+                                <div class="serviceArea-links">
+                                    <a href="#" class="serviceArea-link" title="View Project">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="serviceArea-link" title="View Code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="serviceArea-placeholder">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                        </div>
+                        <div class="serviceArea-content">
+                            <h3 class="serviceArea-title" data-text-en="Digital Soul Space" data-text-zh="心灵数字空间">Digital Soul Space</h3>
+                            <p class="serviceArea-description" data-text-en="Build an exclusive digital soul space for individuals, precipitating your thoughts, experiences and emotions into eternal digital heritage." data-text-zh="为个人构建专属的数字心灵空间，沉淀你的思想、经验与情感，成为永恒的数字遗产。">
+                                Build an exclusive digital soul space for individuals, precipitating your thoughts, experiences and emotions into eternal digital heritage.
+                            </p>
+                            <div class="serviceArea-tags">
+                                <span class="tag" data-text-en="Biography" data-text-zh="传记">Biography</span>
+                                <span class="tag" data-text-en="Healing" data-text-zh="疗愈">Healing</span>
+                                <span class="tag" data-text-en="Twin" data-text-zh="数字分身">Twin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Contact" data-text-zh="联系我">Contact</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Email" data-text-zh="邮箱">Email</h4>
+                                <a href="mr.z@pnuo.com" class="contact-value">mr.z@pnuo.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-weixin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="WeChat" data-text-zh="微信">WeChat</h4>
+                                <a href="tel:+123456789" class="contact-value">534479</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Location" data-text-zh="位置">Location</h4>
+                                <span class="contact-value" data-text-en="Your Location" data-text-zh="你的位置">Your Location</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm"
+                    action="https://api.web3forms.com/submit"
+                    method="POST"
+                    >
+                    <input type="hidden" name="access_key" value="4afe863b-9c92-4627-9c13-3fc60ab2b18f">
+
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-input" placeholder="Name" data-placeholder-en="Name" data-placeholder-zh="姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-input" placeholder="Email" data-placeholder-en="Email" data-placeholder-zh="邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" class="form-input" placeholder="Subject" data-placeholder-en="Subject" data-placeholder-zh="主题" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" class="form-input form-textarea" rows="5" placeholder="Message" data-placeholder-en="Message" data-placeholder-zh="留言" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span data-text-en="Send Message" data-text-zh="发送信息">Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-text-wrapper">
+                    <p class="footer-text">
+                        <span class="footer-copyright">© 2026 Digital Soul Manifest</span>
+                        <span class="footer-divider">•</span>
+                        <span class="footer-built">Carbon-to-Silicon Transmutation Engineering</span>
+                    </p>
+                    <p class="footer-author">
+                        <span class="footer-by-text" data-text-en="by" data-text-zh="由">by</span>
+                        <a href="#" class="footer-author-link">
+                            <i class="fas fa-code"></i>
+                            <span>pnuo.com</span>
+                        </a>
+                    </p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://html5test.com/" class="footer-social-link" title="HTML5" target="_blank">
+                        <i class="fab fa-html5"></i>
+                    </a>
+                    <a href="https://www.w3.org/Style/CSS/" class="footer-social-link" title="CSS3" target="_blank">
+                        <i class="fab fa-css3-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
