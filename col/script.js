@@ -13,8 +13,8 @@ async function loadArticle() {
     // 首页：手动写内容
     if (!id || id === 'col') {
         contentEl.innerHTML = `
-            <h1>PNUO 专栏</h1>
-            <p>这里是你的专栏首页，可自由编辑内容。</p>
+            <h1>子正各类手写</h1>
+            <p>我不会放弃阅读和表达，希望你…算了，你爱干嘛干嘛去。</p>
         `;
         return;
     }
