@@ -20,7 +20,7 @@ async function loadArticle() {
 
   // 首页
   if (!id) {
-    setBanner('/col/img/0001.jpg');
+    setBanner('/col/img/0000.jpg');
     contentEl.innerHTML = `<h1>PNUO Column</h1><p>欢迎来到我的专栏</p>`;
     return;
   }
