@@ -1,7 +1,6 @@
 // 自动获取文章ID，兼容伪静态
 const getArticleID = () => {
-  const paths = window.location.pathname.split('/').filter(Boolean);
-  return paths.pop() || '';
+  return window.location.hash.replace('#', '') || '';
 };
 
 const id = getArticleID();
