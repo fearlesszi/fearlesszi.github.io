@@ -27,7 +27,7 @@ async function loadArticle() {
 
   try {
     // 读取 .md 文件
-    const url = `https://pnuo.com/col/${id}.md`;
+    const url = `https://pnuo.com/col/${id}.html`;
     const res = await fetch(url);
     
     if (!res.ok) {
