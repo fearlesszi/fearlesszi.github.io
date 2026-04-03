@@ -1,57 +1,57 @@
-// 伪静态：获取文章 id (col/001 → 001)
-const path = window.location.pathname;
-const id = path.split('/').pop().trim();
+// 自动获取文章ID，兼容伪静态
+const getArticleID = () => {
+  const paths = window.location.pathname.split('/').filter(Boolean);
+  return paths.pop() || '';
+};
 
+const id = getArticleID();
 const bannerEl = document.getElementById('article-banner');
 const contentEl = document.getElementById('content');
-
-// 页面标题
 const siteTitle = "PNUO Column";
 
-// 加载文章
+// 统一设置封面图
+function setBanner(imagePath) {
+  bannerEl.style.backgroundImage = `url(${imagePath})`;
+  bannerEl.classList.add('show');
+}
+
 async function loadArticle() {
-    // 首页：手动写内容
-    if (!id || id === 'col') {
-        contentEl.innerHTML = `
-            <h1>子正各类手写</h1>
-            <p>我不会放弃阅读和表达，希望你…算了，你爱干嘛干嘛去。</p>
-        `;
-        return;
-    }
+  // ====================== 修复问题1：首页显示默认16:9封面 ======================
+  if (!id || id === 'col') {
+    setBanner('/col/img/0001.jpg'); // 首页默认封面
+    contentEl.innerHTML = `
+      <h1>子正各类手写</h1>
+      <p>我不会放弃阅读和写作，希望你…算了，你爱干嘛干嘛去。</p>
+    `;
+    document.title = siteTitle;
+    return;
+  }
 
-    try {
-        // 加载 MD 文件
-        const res = await fetch(`/col/${id}.md`);
-        if (!res.ok) throw new Error('文件不存在');
-        
-        const mdText = await res.text();
-        const { data, content } = grayMatter(mdText);
+  try {
+    // 修复文章加载路径
+    const res = await fetch(`/col/${id}.md`);
+    if (!res.ok) throw new Error('文章不存在');
+    
+    const mdText = await res.text();
+    const { data, content } = grayMatter(mtdText);
 
-        // 设置封面图
-        if (data.banner) {
-            bannerEl.style.backgroundImage = `url(${data.banner})`;
-            bannerEl.classList.add('show');
-        }
+    // 封面图
+    if (data.banner) setBanner(data.banner);
+    
+    // 标题
+    if (data.title) document.title = `${data.title} | ${siteTitle}`;
 
-        // 设置标题
-        if (data.title) {
-            document.title = `${data.title} | ${siteTitle}`;
-        }
+    // 渲染MD
+    const html = marked.parse(content);
+    contentEl.innerHTML = html;
 
-        // 渲染 Markdown
-        let html = marked.parse(content);
-        contentEl.innerHTML = html;
+    // 链接新窗口打开
+    contentEl.querySelectorAll('a').forEach(link => link.target = '_blank');
 
-        // 所有链接新窗口打开
-        setTimeout(() => {
-            contentEl.querySelectorAll('a').forEach(link => {
-                link.target = '_blank';
-            });
-        }, 0);
-
-    } catch (err) {
-        contentEl.innerHTML = `<h2>文章不存在</h2>`;
-    }
+  } catch (err) {
+    contentEl.innerHTML = `<h2>404 - 文章未找到</h2>`;
+    console.error(err);
+  }
 }
 
 loadArticle();
