@@ -1,0 +1,102 @@
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    line-height: 1.8;
+}
+
+/* ==================== 顶部 Logo ==================== */
+.header {
+    padding: 30px 0;
+}
+.logo-wrap {
+    display: block;
+    width: 199px;
+}
+.logo-svg {
+    width: 100%;
+    height: auto;
+    transition: all 0.4s ease;
+}
+/* Logo  hover 闪光效果 */
+.logo-svg:hover {
+    filter: brightness(1.2);
+    opacity: 0.9;
+}
+
+/* ==================== 文章封面图 16:9 圆角 ==================== */
+.article-banner {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f5;
+    margin-bottom: 40px;
+    display: none;
+}
+.article-banner.show {
+    display: block;
+}
+
+/* ==================== 文章内容样式 ==================== */
+.content {
+    color: #666666;
+    font-size: 17px;
+    margin-bottom: 60px;
+}
+/* 标题配色 */
+.content h1 { color: #1A1A1A; margin: 1.4em 0 0.6em; }
+.content h2 { color: #262626; margin: 1.3em 0 0.6em; }
+.content h3 { color: #404040; margin: 1.2em 0 0.5em; }
+.content h4 { color: #595959; margin: 1em 0 0.5em; }
+/* 正文 */
+.content p { margin: 0 0 1em; }
+/* 链接样式 */
+.content a {
+    color: #D3AF37;
+    text-decoration: none;
+}
+.content a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== 底部固定文案 ==================== */
+.article-footer {
+    margin-top: 80px;
+}
+.quote-line {
+    position: relative;
+    padding-left: 16px;
+    color: #999;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+.quote-line::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 3px;
+    height: 80%;
+    background: #eee;
+    border-radius: 2px;
+}
+
+/* ==================== 签名 SVG ==================== */
+.signature-wrap {
+    text-align: right;
+}
+.signature-svg {
+    width: 169px;
+    height: auto;
+}
