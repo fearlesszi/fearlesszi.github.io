@@ -1,118 +1,98 @@
-/* 全局重置 */
+/* 全局样式 - 保留你的原版配色 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
     line-height: 1.8;
 }
 
-/* ==================== 顶部 Logo ==================== */
-.header {
-    padding: 30px 0;
-}
-.logo-wrap {
-    display: block;
-    width: 119px;
-}
-.logo-svg {
-    width: 100%;
-    height: auto;
-    transition: all 0.4s ease;
-}
-/* Logo  hover 闪光效果 */
-.logo-svg:hover {
-    filter: brightness(1.2);
-    opacity: 0.9;
+/* LOGO */
+.logo {
+    width: 60px;
+    height: 60px;
+    margin: 30px auto;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23D3AF37' d='M50,10 L90,30 L90,70 L50,90 L10,70 L10,30 Z'></path></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-/* ==================== 文章封面图 16:9 圆角 ==================== */
-.article-banner {
+/* 封面图 */
+.banner {
     width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 12px;
+    max-width: 800px;
+    height: 300px;
+    margin: 0 auto 40px;
     background-size: cover;
     background-position: center;
-    background-color: #f5f5f5;
-    margin-bottom: 40px;
-    display: none;
-}
-.article-banner.show {
-    display: block;
+    border-radius: 8px;
 }
 
-/* ==================== 文章内容样式 ==================== */
+/* 内容容器 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .content {
-    color: #666666;
-    font-size: 17px;
+    text-align: center;
     margin-bottom: 60px;
 }
-/* 标题配色 */
-.content h1 { color: #1A1A1A; margin: 1.4em 0 0.6em; }
-.content h2 { color: #262626; margin: 1.3em 0 0.6em; }
-.content h3 { color: #404040; margin: 1.2em 0 0.5em; }
-.content h4 { color: #595959; margin: 1em 0 0.5em; }
-/* 正文 */
-.content p { margin: 0 0 1em; }
-/* 链接样式 */
-.content a {
+
+.content h1 {
+    font-size: 32px;
+    color: #D3AF37;
+    margin-bottom: 20px;
+}
+
+.article-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.article-links a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #1e1e1e;
     color: #D3AF37;
     text-decoration: none;
-}
-.content a:hover {
-    text-decoration: underline;
-}
-
-/* ==================== 底部固定文案 ==================== */
-.article-footer {
-    margin-top: 80px;
-}
-.quote-line {
-    position: relative;
-    padding-left: 16px;
-    color: #999;
-    font-size: 15px;
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-.quote-line::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 4px;
-    width: 3px;
-    height: 80%;
-    background: #eee;
-    border-radius: 2px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-/* ==================== 签名 SVG ==================== */
-.signature-wrap {
-    text-align: right;
-}
-.signature-svg {
-    width: 99px;
-    height: auto;
+.article-links a:hover {
+    background-color: #2a2a2a;
 }
 
-/* ==================== 底部浅横线 ==================== */
-.footer-line {
-    border: none;
-    height: 1px;
-    background-color: #eee;
-    margin: 20px 0;
-}
-
-/* ==================== 版权信息样式 ==================== */
-.copyright {
+/* 文章页内容 */
+.article-content {
     text-align: left;
-    font-size: 12px;
-    color: #999;
+    font-size: 17px;
+}
+
+.article-content h1 {
     margin-bottom: 30px;
+}
+
+.article-content p {
+    margin-bottom: 20px;
+}
+
+/* 签名 */
+.signature {
+    width: 120px;
+    height: 40px;
+    margin: 40px auto;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 167 140'><path fill='%23D3AF37' d='M1784.22,664.97C1779.4,666.96 1774.53,669.17 1769.76,671.66C1766.17,671.68 1753.52,653.1 1753.25,650.59C1755.53,648.36 1759.27,644.34 1761.65,644.05C1767.76,646.54 1820.16,639.7 1831.68,638.48C1836.71,638.24 1836.73,632.94 1843.22,634.38C1848.69,638.89 1862.87,648.99 1861.43,660.26C1860.52,662.46 1853.1,663.04 1840.96,665.67C1826.08,669.92 1807.42,673.55 1800.3,674.88C1821.66,703.52 1825.64,702.18 1831.68,710.88C1831.54,713.22 1830.97,721.91 1826.43,723.09C1816.6,725.65 1799.23,724.68 1795.63,724.68C1790.37,724.69 1731.19,737.41 1722.87,739.75C1715.39,741.86 1697.12,720.45 1694.07,716.65C1690.87,712.67 1691.83,680.79 1692.92,672.43C1694.01,664.07 1689.38,652.44 1684.43,645.93C1698.27,645.66 1719.04,655.83 1718.22,661.31C1715.34,680.35 1713.13,709.17 1720.79,714.64C1723.97,716.91 1737.2,713.17 1750.89,710.88C1765.95,708.36 1781.34,708.11 1789.2,704.52C1791.41,703.51 1793.19,700.54 1794,699.25C1796,696.03 1789.19,677.46 1784.22,664.97Z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
 }
