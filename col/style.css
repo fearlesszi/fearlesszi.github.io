@@ -1,4 +1,4 @@
-/* ==================== 全局重置 ==================== */
+/* 全局重置 */
 * {
     margin: 0;
     padding: 0;
@@ -217,7 +217,16 @@ body {
     border-radius: 2px;
 }
 
-/* 底部浅浅的分隔线 (补充) */
+/* 签名 SVG */
+.signature-wrap {
+    text-align: right;
+}
+
+.signature-svg {
+    width: 114px;
+    height: auto;
+}
+/* 底部浅浅的分隔线 */
 .footer-line {
     border: none;
     height: 1px;
@@ -225,20 +234,10 @@ body {
     margin: 40px 0 20px;
 }
 
-/* 版权信息 (补充) */
+/* 版权信息 */
 .copyright {
-    text-align: center;
+    text-align: left;
     font-size: 12px;
     color: #ccc;
     margin-bottom: 20px;
-}
-
-/* 签名 SVG */
-.signature-wrap {
-    text-align: left;
-}
-
-.signature-svg {
-    width: 114px;
-    height: auto;
 }
