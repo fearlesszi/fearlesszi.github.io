@@ -15,14 +15,14 @@ body {
     color: #666;
 }
 
-/* ==================== 顶部 Logo ==================== */
+/* 顶部 Logo  */
 .header {
     padding: 30px 0;
 }
 
 .logo-wrap {
     display: block;
-    width: 199px;
+    width: 119px;
 }
 
 .logo-svg {
@@ -37,7 +37,7 @@ body {
     opacity: 0.9;
 }
 
-/* ==================== 文章封面图 16:9 圆角 ==================== */
+/*  文章封面图 16:9 圆角  */
 .article-banner {
     width: 100%;
     aspect-ratio: 16/9;
@@ -53,7 +53,7 @@ body {
     display: block;
 }
 
-/* ==================== 文章内容样式 (核心) ==================== */
+/* 文章内容样式 (核心) */
 .content {
     color: #666666;
     font-size: 17px;
@@ -190,7 +190,7 @@ body {
     background-color: #fcfcfc;
 }
 
-/* ==================== 底部固定文案 ==================== */
+/* 底部固定文案 */
 .article-footer {
     margin-top: 80px;
     padding-top: 20px;
@@ -233,12 +233,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* ==================== 签名 SVG ==================== */
+/* 签名 SVG */
 .signature-wrap {
     text-align: right;
 }
 
 .signature-svg {
-    width: 169px;
+    width: 114px;
     height: auto;
 }
