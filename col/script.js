@@ -33,7 +33,7 @@ async function loadArticle() {
     if (!res.ok) throw new Error('文章不存在');
     
     const mdText = await res.text();
-    const { data, content } = grayMatter(mtdText);
+    const { data, content } = grayMatter(mdText);
 
     // 封面图
     if (data.banner) setBanner(data.banner);
