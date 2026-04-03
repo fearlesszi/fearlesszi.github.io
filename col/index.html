@@ -104,7 +104,7 @@
       }
 
       try {
-        const res = await fetch(`./${id}.md`)
+        const res = await fetch(`/col/${id}.md`)
         const text = await res.text()
         // 自动把 MD 转成 HTML
         contentEl.innerHTML = marked.parse(text)
