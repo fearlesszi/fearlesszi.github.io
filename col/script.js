@@ -27,7 +27,7 @@ async function loadArticle() {
 
   try {
     // 读取 .md 文件
-    const res = await fetch(`/col/${id}.md`);
+    const res = await fetch(`${id}.md`);
     if (!res.ok) {
       contentEl.innerHTML = '<h2>文章未找到</h2>';
       return;
