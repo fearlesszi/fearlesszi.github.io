@@ -1,56 +1,59 @@
-// 自动获取文章ID，兼容伪静态
-const getArticleID = () => {
-  return window.location.hash.replace('#', '') || '';
-};
-
-const id = getArticleID();
-const bannerEl = document.getElementById('article-banner');
-const contentEl = document.getElementById('content');
-const siteTitle = "PNUO Column";
-
-// 统一设置封面图
-function setBanner(imagePath) {
-  bannerEl.style.backgroundImage = `url(${imagePath})`;
-  bannerEl.classList.add('show');
+// 自动从 # 后面获取文章 ID
+function getArticleID() {
+  return location.hash.replace('#', '').trim() || '';
 }
 
+// 统一设置封面
+function setBanner(imagePath) {
+  const banner = document.getElementById('article-banner');
+  if (banner && imagePath) {
+    banner.style.backgroundImage = `url(${imagePath})`;
+    banner.classList.add('show');
+  }
+}
+
+// 加载文章
 async function loadArticle() {
-  // ====================== 修复问题1：首页显示默认16:9封面 ======================
-  if (!id || id === 'col') {
-    setBanner('/col/img/0000.jpg'); // 首页默认封面
-    contentEl.innerHTML = `
-      <h1>子正各类手写</h1>
-      <p>我不会放弃阅读和写作，希望你…算了，你爱干嘛干嘛去。</p>
-    `;
-    document.title = siteTitle;
+  const id = getArticleID();
+  const contentEl = document.getElementById('content');
+  const bannerEl = document.getElementById('article-banner');
+
+  // 首页
+  if (!id) {
+    setBanner('/col/img/0001.jpg');
+    contentEl.innerHTML = `<h1>PNUO Column</h1><p>欢迎来到我的专栏</p>`;
     return;
   }
 
   try {
-    // 修复文章加载路径
+    // 读取 .md 文件
     const res = await fetch(`/col/${id}.md`);
-    if (!res.ok) throw new Error('文章不存在');
-    
-    const mdText = await res.text();
-    const { data, content } = grayMatter(mdText);
+    if (!res.ok) {
+      contentEl.innerHTML = '<h2>文章未找到</h2>';
+      return;
+    }
 
-    // 封面图
-    if (data.banner) setBanner(data.banner);
-    
-    // 标题
-    if (data.title) document.title = `${data.title} | ${siteTitle}`;
-
-    // 渲染MD
+    const text = await res.text();
+    const { data, content } = grayMatter(text);
     const html = marked.parse(content);
+
+    // 设置封面
+    if (data.banner) setBanner(data.banner);
+
+    // 设置标题
+    if (data.title) document.title = data.title + ' | PNUO';
+
+    // 渲染内容
     contentEl.innerHTML = html;
 
-    // 链接新窗口打开
-    contentEl.querySelectorAll('a').forEach(link => link.target = '_blank');
-
-  } catch (err) {
-    contentEl.innerHTML = `<h2>404 - 文章未找到</h2>`;
-    console.error(err);
+  } catch (e) {
+    contentEl.innerHTML = '<h2>加载失败</h2>';
+    console.error(e);
   }
 }
 
+// 页面加载时执行
 loadArticle();
+
+// 哈希变化时重新加载文章（关键！）
+window.addEventListener('hashchange', loadArticle);
