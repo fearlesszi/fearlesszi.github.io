@@ -18,7 +18,7 @@ function setBanner(imagePath) {
 async function loadArticle() {
   // ====================== 修复问题1：首页显示默认16:9封面 ======================
   if (!id || id === 'col') {
-    setBanner('/col/img/0001.jpg'); // 首页默认封面
+    setBanner('/col/img/0000.jpg'); // 首页默认封面
     contentEl.innerHTML = `
       <h1>子正各类手写</h1>
       <p>我不会放弃阅读和写作，希望你…算了，你爱干嘛干嘛去。</p>
