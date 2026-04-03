@@ -19,7 +19,7 @@ body {
 }
 .logo-wrap {
     display: block;
-    width: 199px;
+    width: 119px;
 }
 .logo-svg {
     width: 100%;
@@ -97,6 +97,6 @@ body {
     text-align: right;
 }
 .signature-svg {
-    width: 169px;
+    width: 99px;
     height: auto;
 }
