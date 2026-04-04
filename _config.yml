@@ -1,1 +1,1 @@
-include: [".well-known", "_includes"]
+include: [".well-known"]
