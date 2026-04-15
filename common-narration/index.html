@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Narration 同叙集</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #0f2847 100%);
+            color: #ffffff;
+        }
+
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 6rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, filter 0.8s ease, visibility 0.8s;
+            filter: blur(20px);
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            filter: blur(0);
+            z-index: 1;
+        }
+
+        .slide.exit {
+            opacity: 0;
+            filter: blur(20px);
+            visibility: hidden;
+        }
+
+        .content-wrapper {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #d4af37;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: #d4af37;
+            font-weight: 500;
+        }
+
+        ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        li {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-size: 0.8rem;
+        }
+
+        .icon-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            color: #d4af37;
+            font-size: 1.5rem;
+        }
+
+        .progress {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .dot.active {
+            background: #d4af37;
+            transform: scale(1.3);
+        }
+
+        .nav-hint {
+            position: fixed;
+            bottom: 4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            z-index: 100;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .column {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 3px solid #d4af37;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4af37;
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">COMMON NARRATION 同叙集</div>
+
+    <div class="slideshow">
+        <!-- 第1页：封面 -->
+        <section class="slide active">
+            <div class="content-wrapper" style="text-align: center;">
+                <div class="icon-box">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <h1>Common Narration<br><span class="highlight">同叙集</span></h1>
+                <p style="font-size: 1.4rem; margin-top: 2rem;">美美与共 · 递进沟通</p>
+                <p style="margin-top: 1rem; opacity: 0.7;">以同理心构建文化出海的新叙事</p>
+            </div>
+        </section>
+
+        <!-- 第2页：核心理念 -->
+        <section class="slide">
+            <div class="content-wrapper">
+                <h2><i class="fas fa-lightbulb"></i> 核心理念</h2>
+                <p>在文化出海的过程中，我们深知<span class="highlight">“物美价廉”</span>的叙事虽在商业逻辑上成立，却易因情感上的进攻性引发心理防御。</p>
+                <p>真正的文化出海，不该是<span class="highlight">“降维打击”</span>的优越感，而应是<span class="highlight">“美美与共”</span>的共鸣感。</p>
+                <p style="margin-top: 2rem; font-size: 1.3rem; color: #d4af37;">我们的初衷：捡起闲置叙事权，讲好中国故事，实现递进沟通。</p>
+            </div>
+        </section>
+
+        <!-- 第3页：策略一 -->
+        <section class="slide">
+            <div class="content-wrapper">
+                <h2><i class="fas fa-eye"></i> 叙事视角转换：从“看我”到“关于你”</h2>
+                <p>逆反心理往往源于“自说自话”。在<span class="highlight">项目启动期</span>，我们将内容定位从“科普中国”微调为“链接全球”。</p>
+                <div class="two-column">
+                    <div class="column">
+                        <h3><i class="fas fa-search"></i> 寻找公约数</h3>
+                        <ul>
+                            <li>不说“中国的非遗”，而说“即将消失的手艺”</li>
+                            <li>不说“中国历史”，而说“文明的演进与教训”</li>
+                            <li>不说“性价比”，而说“价值的真实兑现”</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3><i class="fas fa-exchange-alt"></i> 在地化转译</h3>
+                        <ul>
+                            <li>在Youtube、TikTok、Instagram 等平台运营</li>
+                            <li>用西方叙事结构包裹东方内核</li>
+                            <li>英雄之旅、解谜、悬念式开头</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第4页：策略二 -->
+        <section class="slide">
+            <div class="content-wrapper">
+                <h2><i class="fas fa-language"></i> 语言与情感的深度适配</h2>
+                <p>我们强调用英语在项目中扮演<span class="highlight">“文化翻译官”</span>而非“复读机”。</p>
+                <div class="two-column">
+                    <div class="column">
+                        <h3><i class="fas fa-users"></i> 多语种内容矩阵</h3>
+                        <ul>
+                            <li><span class="highlight">增长期</span>视情况增加其他语种</li>
+                            <li>不仅翻译语言，更翻译“玩梗”方式</li>
+                            <li>深度适配情感热点</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3><i class="fas fa-user-circle"></i> 去标签化</h3>
+                        <ul>
+                            <li>减少“宏大叙事”，多展现“具体的人”</li>
+                            <li>例：切圣女果，东方方法为个人带来的效率提升</li>
+                            <li>让技术通过“美”与“智慧”自然流露</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第5页：策略三 -->
+        <section class="slide">
+            <div class="content-wrapper">
+                <h2><i class="fas fa-comments"></i> 建立平等双向沟通</h2>
+                <p>为避免“逆反心理”，在<span class="highlight">稳定期</span>的社群运营中重点加强互动，去除对抗性。</p>
+                <div class="two-column">
+                    <div class="column">
+                        <h3><i class="fab fa-discord"></i> 深度社区运营</h3>
+                        <ul>
+                            <li>建立 telegram / Reddit 深度社区</li>
+                            <li>鼓励海外用户分享他们文化中的类似元素</li>
+                            <li>例：讲中式园林时，邀请讨论传统园艺</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3><i class="fab fa-quora"></i> 问答引流</h3>
+                        <ul>
+                            <li>不以发链接为主</li>
+                            <li>以“学者”或“爱好者”身份谦逊解答</li>
+                            <li>消除误解，建立信任</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第6页：策略四 -->
+        <section class="slide">
+            <div class="content-wrapper">
+                <h2><i class="fas fa-shopping-bag"></i> 商业变现：润物细无声</h2>
+                <p>通过<span class="highlight">成熟期</span>的品牌升级，化解“物美价廉”叙事的不适感。</p>
+                <div class="two-column">
+                    <div class="column">
+                        <h3><i class="fas fa-heart"></i> 从“性价比”到“心价比”</h3>
+                        <ul>
+                            <li>自有产品：家居、服饰、文创</li>
+                            <li>不强调“便宜”</li>
+                            <li>强调“生活方式”与“审美价值”</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3><i class="fas fa-handshake"></i> 产业延伸</h3>
+                        <ul>
+                            <li>线下展览与文化交流</li>
+                            <li>让海外受众通过实物触摸质感</li>
+                            <li>将中国制造升级为中国创造、中国美学</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第7页：结语 -->
+        <section class="slide">
+            <div class="content-wrapper" style="text-align: center;">
+                <div class="icon-box">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    
+                </div>
+                <p style="font-size: 1.4rem; margin-top: 2rem;">真正的沟通不是争夺麦克风，<br>而是让对方愿意坐下来倾听。</p>
+                <p style="margin-top: 2rem; color: #d4af37;">将“同理心”植入每一个视频文案，<br>正是「Common Narration 同叙集」落地的灵魂所在。</p>
+                
+            </div>
+        </section>
+    </div>
+
+    <div class="progress" id="progress"></div>
+    <div class="nav-hint">
+        <i class="fas fa-keyboard"></i> 方向键 / <i class="fas fa-mouse"></i> 滚轮 / <i class="fas fa-hand-pointer"></i> 点击圆点 翻页
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const progress = document.getElementById('progress');
+        let currentSlide = 0;
+        let isAnimating = false;
+
+        // 创建进度点
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            progress.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            if (isAnimating || index === currentSlide || index < 0 || index >= slides.length) return;
+            isAnimating = true;
+
+            slides[currentSlide].classList.remove('active');
+            slides[currentSlide].classList.add('exit');
+
+            setTimeout(() => {
+                slides[currentSlide].classList.remove('exit');
+                currentSlide = index;
+                slides[currentSlide].classList.add('active');
+                updateDots();
+                isAnimating = false;
+            }, 400);
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        // 键盘事件
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'Backspace') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // 滚轮事件
+        let wheelTimeout;
+        document.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            clearTimeout(wheelTimeout);
+            wheelTimeout = setTimeout(() => {
+                if (e.deltaY > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }, 50);
+        }, { passive: false });
+
+        // 触控板手势支持
+        let touchStartY = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            const touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>
