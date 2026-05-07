@@ -1,0 +1,123 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    --rainbow-gradient: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #1de840, #1ddde8, #2b1de8, #dd00f3);
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --text-color: #4a4a4a;
+    --accent-color: #6c5ce7;
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--primary-gradient);
+    background-attachment: fixed;
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background: var(--glass-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+#progress-bar-container {
+    background: #eee;
+    height: 8px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    background: var(--rainbow-gradient);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.question-box {
+    margin-bottom: 30px;
+}
+
+#question-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    min-height: 80px;
+}
+
+.options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-opt {
+    padding: 12px 30px;
+    border: 2px solid var(--accent-color);
+    background: transparent;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--accent-color);
+    transition: all 0.2s;
+}
+
+.btn-opt:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#btn-prev, #btn-reset {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.85rem;
+}
+
+#btn-prev:disabled {
+    color: #ddd;
+    cursor: not-allowed;
+}
+
+.hidden { display: none; }
+
+#result-container h2 { color: var(--accent-color); }
+#score-display { font-size: 3rem; font-weight: 800; margin: 20px 0; }
+#result-advice { line-height: 1.6; text-align: left; background: #f9f9f9; padding: 15px; border-radius: 10px; }
+
+.btn-primary {
+    margin-top: 20px;
+    padding: 12px 40px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
