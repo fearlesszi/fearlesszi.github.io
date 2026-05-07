@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社群健康度自测 - 守护独立认知</title>
+    <meta name="description" content="本测试基于激进社群运作特征，帮助性少数群体识别潜在的心理操控与意识形态渗透风险。">
+    <meta name="keywords" content="LGBTQ+, 性少数, 社群识别, 心理操控, 社交健康, 自测题">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌈 社群健康度自测</h1>
+            <p class="subtitle">识别潜伏在身边的“运作法”，保护你的认知独立</p>
+        </header>
+
+        <main id="quiz-container">
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            
+            <div class="question-box">
+                <h3 id="question-text">正在加载题目...</h3>
+                <div class="options">
+                    <button class="btn-opt" onclick="handleAnswer(true)">是 (Yes)</button>
+                    <button class="btn-opt" onclick="handleAnswer(false)">否 (No)</button>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="btn-prev" onclick="prevQuestion()" disabled>返回上一题</button>
+                <button id="btn-reset" onclick="resetQuiz()">清空重来</button>
+            </div>
+        </main>
+
+        <div id="result-container" class="hidden">
+            <h2>评估结果</h2>
+            <div id="score-display"></div>
+            <p id="result-advice"></p>
+            <button class="btn-primary" onclick="resetQuiz()">重新测试</button>
+        </div>
+
+        <footer>
+            <p>© 2026 认知守护计划 PNUO.com 保持独立，真实生活！—— 子正 </p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
