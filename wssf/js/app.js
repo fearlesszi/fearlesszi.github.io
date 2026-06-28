@@ -12,7 +12,7 @@ const categories = [
 ];
 
 // --- 2. 品牌数据源 ---
-// 帮你自动生成 9个类目 x 10个 = 90个 空白占位符
+// 9个类目 x 10个 = 90个 空白占位符
 let database = [
     // 单体帆船
     { category: 'monohull', name: 'Hanse Yachts', logo: 'images/hanse-logo.jpg', link: 'https://hanseyachts.com/gb/' },
