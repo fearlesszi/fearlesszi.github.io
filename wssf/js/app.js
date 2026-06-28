@@ -196,6 +196,14 @@ let database = [
     { category: 'gear', name: 'ePropulsion', logo: 'images/epropulsion.jpg', link: 'https://www.epropulsion.com/' },
 
     // 帆船社区
+    { category: 'community', name: 'NoForeignLand', logo: 'images/noforeignland.jpg', link: 'https://www.noforeignland.com/' },
+    { category: 'community', name: 'Wavve Boating', logo: 'images/wavveboating.jpg', link: 'https://www.wavveboating.com/' },
+    { category: 'community', name: 'SeaPeople', logo: 'images/seapeopleapp.jpg', link: 'https://seapeopleapp.com/' },
+    { category: 'community', name: 'Argo', logo: 'images/argo.jpg', link: 'https://argonav.io/' },
+    { category: 'community', name: 'Go Sailing', logo: 'images/gosailingapp.jpg', link: 'https://gosailingapp.com/' },
+    { category: 'community', name: 'Navily', logo: 'images/navily.jpg', link: 'https://www.navily.com/' },
+    { category: 'community', name: 'ActiveCaptain', logo: 'images/activecaptain.jpg', link: 'https://activecaptain.garmin.com/' },
+    { category: 'community', name: 'C-MAP', logo: 'images/c-map.jpg', link: 'https://www.c-map.com/' },
     { category: 'community', name: 'Cruisers Forum', logo: 'images/cruisersforum.jpg', link: 'https://www.cruisersforum.com/' },
     { category: 'community', name: 'Sailing Anarchy', logo: 'images/sailinganarchy.jpg', link: 'https://forums.sailinganarchy.com/' },
     { category: 'community', name: 'YBW Forums', logo: 'images/ybwforums.jpg', link: 'https://forums.ybw.com/' },
