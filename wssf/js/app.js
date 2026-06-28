@@ -196,6 +196,10 @@ let database = [
     { category: 'gear', name: 'ePropulsion', logo: 'images/epropulsion.jpg', link: 'https://www.epropulsion.com/' },
 
     // 帆船社区
+    { category: 'community', name: 'Reddit Sailing', logo: 'images/r-sailing.jpg', link: 'https://www.reddit.com/r/sailing/' },
+    { category: 'community', name: 'CrewBay', logo: 'images/crewbay.jpg', link: 'https://www.crewbay.com/' },
+    { category: 'community', name: 'Noonsite', logo: 'images/noonsite.jpg', link: 'https://www.noonsite.com/' },
+    { category: 'community', name: 'FindACrew', logo: 'images/findacrew.jpg', link: 'https://www.findacrew.com/' },
     { category: 'community', name: 'NoForeignLand', logo: 'images/noforeignland.jpg', link: 'https://www.noforeignland.com/' },
     { category: 'community', name: 'Wavve Boating', logo: 'images/wavveboating.jpg', link: 'https://www.wavveboating.com/' },
     { category: 'community', name: 'SeaPeople', logo: 'images/seapeopleapp.jpg', link: 'https://seapeopleapp.com/' },
