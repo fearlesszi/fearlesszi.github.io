@@ -220,6 +220,26 @@ let database = [
     // 帆船设计
 
     // 帆船博主
+    { category: 'vlogger', name: 'Lauren Landers Sailing', logo: 'images/laurenlanders.jpg', link: 'https://www.youtube.com/@laurenlanders' },
+    { category: 'vlogger', name: 'Distant Shores TV', logo: 'images/DistantShoresTV.jpg', link: 'https://www.youtube.com/@DistantShoresTV' },
+    { category: 'vlogger', name: 'Sailing Seabird', logo: 'images/SailingSeabird.jpg', link: 'https://www.youtube.com/@SailingSeabird' },
+    { category: 'vlogger', name: 'Sailing Nandji - Frothlyfe', logo: 'images/FrothLyfeSailingNandji.jpg', link: 'https://www.youtube.com/@FrothLyfeSailingNandji' },
+    { category: 'vlogger', name: 'Jakob Lang Sailing', logo: 'images/jakoblangsailing.jpg', link: 'https://www.youtube.com/@jakoblangsailing' },
+    { category: 'vlogger', name: 'Sail with Ben and Amy', logo: 'images/sailwithbenandamy.jpg', link: 'https://www.youtube.com/@sailwithbenandamy' },
+    { category: 'vlogger', name: 'Alluring Arctic', logo: 'images/AlluringArctic.jpg', link: 'https://www.youtube.com/@AlluringArctic' },
+    { category: 'vlogger', name: 'Sailing Artha', logo: 'images/SailingArtha.jpg', link: 'https://www.youtube.com/@SailingArtha' },
+    { category: 'vlogger', name: 'Harbors Unknown', logo: 'images/HarborsUnknown.jpg', link: 'https://www.youtube.com/@HarborsUnknown' },
+    { category: 'vlogger', name: 'Expedition Evans', logo: 'images/ExpeditionEvans.jpg', link: 'https://www.youtube.com/@ExpeditionEvans' },
+    { category: 'vlogger', name: 'Sailing Miss Lone Star', logo: 'images/SailingMissLoneStar.jpg', link: 'https://www.youtube.com/@SailingMissLoneStar' },
+    { category: 'vlogger', name: 'Sailing Dawn Hunters', logo: 'images/DawnHunters.jpg', link: 'https://www.youtube.com/@DawnHunters' },
+    { category: 'vlogger', name: 'Sailing La Vagabonde', logo: 'images/SailingLaVagabonde.jpg', link: 'https://www.youtube.com/@SailingLaVagabonde' },
+    { category: 'vlogger', name: 'Sailing SV Delos', logo: 'images/svdelos.jpg', link: 'https://www.youtube.com/@svdelos' },
+    { category: 'vlogger', name: 'Sailing Doodles', logo: 'images/Sailingdoodles.jpg', link: 'https://www.youtube.com/@Sailingdoodles' },
+    { category: 'vlogger', name: 'Gone with the Wynns', logo: 'images/gonewiththewynns.jpg', link: 'https://www.youtube.com/@gonewiththewynns' },
+    { category: 'vlogger', name: 'Sailing Zatara', logo: 'images/SailingZatara.jpg', link: 'https://www.youtube.com/@SailingZatara' },
+    { category: 'vlogger', name: '船長西 Captain Xi', logo: 'images/captain-xi-new.jpg', link: 'https://www.youtube.com/@captain-xi-new' },
+    { category: 'vlogger', name: 'Erik Aanderaa', logo: 'images/erikaanderaa.jpg', link: 'https://www.youtube.com/@erikaanderaa' },
+    { category: 'vlogger', name: 'Sailing Uma', logo: 'images/SailingUma.jpg', link: 'https://www.youtube.com/@SailingUma' },
 
     // 船展
     { category: 'show', name: 'Southampton International Boat Show', logo: 'images/southamptonboatshow.jpg', link: 'https://www.southamptonboatshow.com/' },
@@ -251,6 +271,7 @@ let database = [
     { category: 'show', name: 'Singapore Yacht Festival', logo: 'images/Singapore-Yacht-Festival.jpg', link: 'https://www.singaporyachtfestival.com/' },
     { category: 'show', name: 'Shanghai International Boat Show', logo: 'images/cibs.jpg', link: 'https://www.boatshowchina.com/' },
     { category: 'show', name: 'Dubai International Boat Show', logo: 'images/Dubai-International-Boat-Show.jpg', link: 'https://www.boatshowdubai.com/' },
+    
     // 其他
     { category: 'other', name: '船旗注册筛选器', logo: 'images/flagofregistry.jpg', link: 'https://pnuo.com/wssf/frf/' },
     { category: 'other', name: 'Marine Traffic', logo: 'images/marinetraffic.jpg', link: 'https://marinetraffic.com/' },
