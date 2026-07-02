@@ -218,7 +218,27 @@ let database = [
     { category: 'community', name: 'Ribnet', logo: 'images/ribnet.jpg', link: 'https://www.rib.net/' },
 
     // 帆船设计
-
+    { category: 'design', name: 'Colin Archer', logo: 'images/colin-archer.jpg', link: 'https://www.colin-archer.no/' },
+    { category: 'design', name: 'Nathanael G. Herreshoff', logo: 'images/herreshoff.jpg', link: 'https://www.herreshoff.org/' },
+    { category: 'design', name: 'Lyle Hess', logo: 'images/lyle-hess.jpg', link: 'https://en.wikipedia.org/wiki/Lyle_Hess' },
+    { category: 'design', name: 'Olin Stephens', logo: 'images/colin-archer.jpg', link: 'https://www.sparkmanstephens.com/' },
+    { category: 'design', name: 'German Frers', logo: 'images/german-frers.jpg', link: 'https://www.germanfrers.net/' },
+    { category: 'design', name: 'Bruce Farr', logo: 'images/bruce-farr.jpg', link: 'https://www.farrdesign.com/' },
+    { category: 'design', name: 'Philippe Briand', logo: 'images/philippe-briand.jpg', link: 'https://www.philippebriand.com/' },
+    { category: 'design', name: 'Ron Holland', logo: 'images/ron-holland.jpg', link: 'https://www.ronhollanddesign.com/' },
+    { category: 'design', name: 'Robert H. Perry', logo: 'images/robert-perry.jpg', link: 'https://www.perryboat.com/' },
+    { category: 'design', name: 'Bill Tripp', logo: 'images/bill-ripp.jpg', link: 'https://www.trippdesign.net/' },
+    { category: 'design', name: 'Rob Humphreys', logo: 'images/rob-humphreys.jpg', link: 'https://www.https://humphreysdesign.com/' },
+    { category: 'design', name: 'Tony Castro', logo: 'images/tony-castro.jpg', link: 'https://tonycastroyachts.com/' },
+    { category: 'design', name: 'Owen Clarke', logo: 'images/owen-clarke.jpg', link: 'https://www.owenclarkedesign.com/' },
+    { category: 'design', name: 'Gerard Dykstra', logo: 'images/gerard-dykstra.jpg', link: 'https://dykstra-na.nl/' },
+    { category: 'design', name: 'Berret-Racoupeau', logo: 'images/berret-racoupeau.jpg', link: 'http://berret-racoupeau.com/' },
+    { category: 'design', name: 'Finot-Conq Architects', logo: 'images/finot-conq.jpg', link: 'https://finot-conq.com/' },
+    { category: 'design', name: 'Bill Dixon', logo: 'images/bill-dixon.jpg', link: 'https://www.dixonyachtdesign.com/' },
+    { category: 'design', name: 'Nauta Design', logo: 'images/nauta.jpg', link: 'https://www.nautadesign.com/' },
+    { category: 'design', name: 'Judel/Vrolijk', logo: 'images/judel-vrolijk.jpg', link: 'https://www.judel-vrolijk.com/' },
+    { category: 'design', name: 'VPLP Design', logo: 'images/vplp.jpg', link: 'https://www.vplp.fr/' },
+    
     // 帆船博主
     { category: 'vlogger', name: 'Lauren Landers Sailing', logo: 'images/laurenlanders.jpg', link: 'https://www.youtube.com/@laurenlanders' },
     { category: 'vlogger', name: 'Distant Shores TV', logo: 'images/DistantShoresTV.jpg', link: 'https://www.youtube.com/@DistantShoresTV' },
