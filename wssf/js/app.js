@@ -164,7 +164,7 @@ let database = [
     { category: 'event', name: 'ARC Plus', logo: 'images/acrplus.jpg', link: 'https://www.worldcruising.com/arc_plus/' },
     { category: 'event', name: 'ARC', logo: 'images/AtlanticRallyCruisers.jpg', link: 'https://www.worldcruising.com/arc/' },
 
-    // 帆船配件
+    // 供应链
     { category: 'industrialchain', name: 'Seldén', logo: 'images/selden.jpg', link: 'https://www.seldenmast.com/' },
     { category: 'industrialchain', name: 'North Sails', logo: 'images/northsails.jpg', link: 'https://www.northsails.com/' },
     { category: 'industrialchain', name: 'Wilford', logo: 'images/wilford.jpg', link: 'http://www.wilfordsails.com/' },
@@ -194,6 +194,8 @@ let database = [
     { category: 'industrialchain', name: 'Torqeedo', logo: 'images/torqeedo.jpg', link: 'https://www.torqeedo.com/' },
     { category: 'industrialchain', name: 'Oceanvolt', logo: 'images/oceanvolt.jpg', link: 'https://oceanvolt.com/' },
     { category: 'industrialchain', name: 'ePropulsion', logo: 'images/epropulsion.jpg', link: 'https://www.epropulsion.com/' },
+    { category: 'industrialchain', name: 'Mitek', logo: 'images/mitekitaly.jpg', link: 'https://mitekitaly.com/' },
+    { category: 'industrialchain', name: 'Amare Group', logo: 'images/amare.jpg', link: 'https://www.amare-group.com/' },
 
     // 帆船社区
     { category: 'community', name: 'Reddit Sailing', logo: 'images/r-sailing.jpg', link: 'https://www.reddit.com/r/sailing/' },
