@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actor+ 青年演员内容成长联盟 | 创始成员招募</title>
+    <!-- Font Awesome Icon Library CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-main: #fafafa;
+            --card-bg: #ffffff;
+            --text-main: #161823; /* 抖音经典黑 */
+            --text-sub: #757784;  /* 抖音次级灰 */
+            --dy-red: #fe2c55;    /* 抖音主色红 */
+            --dy-cyan: #25f4ee;   /* 抖音辅助青 */
+            --border-color: #f0f0f2;
+            --font-family: "Microsoft YaHei", "微软雅黑", -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            font-weight: 400;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 抖音故障体标题特效 */
+        .glitch-title {
+            font-size: 3rem;
+            font-weight: 900;
+            position: relative;
+            display: inline-block;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: -2px 0 var(--dy-cyan), 2px 0 var(--dy-red);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { text-shadow: -2px 1.5px 0 var(--dy-cyan), 2px -1.5px 0 var(--dy-red); }
+            25% { text-shadow: 2px -1.5px 0 var(--dy-cyan), -2px 1.5px 0 var(--dy-red); }
+            50% { text-shadow: -1.5px -2px 0 var(--dy-cyan), 1.5px 2px 0 var(--dy-red); }
+            75% { text-shadow: 2px 1.5px 0 var(--dy-cyan), -1.5px -2px 0 var(--dy-red); }
+            100% { text-shadow: -2px -1.5px 0 var(--dy-cyan), 2px 1.5px 0 var(--dy-red); }
+        }
+
+        /* Header / Hero Section */
+        header {
+            padding: 70px 0 50px;
+            text-align: center;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--text-main);
+            color: #ffffff;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .badge-tag i {
+            color: var(--dy-red);
+        }
+
+        .slogan {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dy-red);
+            margin-top: 12px;
+        }
+
+        .hero-desc {
+            max-width: 720px;
+            margin: 20px auto 30px;
+            font-size: 1.05rem;
+            color: var(--text-sub);
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--dy-red);
+            color: #ffffff;
+            padding: 15px 36px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(254, 44, 85, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(254, 44, 85, 0.45);
+            background: #e02447;
+        }
+
+        /* Common Section Layout */
+        section {
+            padding: 55px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-header h2 {
+            font-size: 2.1rem;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-sub);
+            font-size: 0.98rem;
+        }
+
+        /* Core Values & Benefits Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border-color: #e2e2e5;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: #f8f8fa;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        /* Founder Member Banner (Douyin Style Black Hero Box) */
+        .founder-banner {
+            background: var(--text-main);
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 45px;
+            margin: 20px 0;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(22, 24, 35, 0.15);
+        }
+
+        .founder-banner h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .founder-banner h3 i {
+            color: var(--dy-red);
+        }
+
+        .founder-banner p {
+            color: #a6a8b3;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .perks-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .perks-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #f1f1f5;
+        }
+
+        .perks-list i {
+            color: var(--dy-cyan);
+        }
+
+        /* Content Level Badges */
+        .level-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .badge-l1 { background: #fef2f4; color: var(--dy-red); }
+        .badge-l2 { background: #eefcfb; color: #0891b2; }
+        .badge-l3 { background: #f1f1f5; color: var(--text-main); }
+
+        /* Requirements Section */
+        .req-box {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--text-main);
+            padding: 24px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .req-box h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 45px 0;
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile & Responsive Adjustments */
+        @media (max-width: 768px) {
+            .glitch-title {
+                font-size: 2.2rem;
+            }
+            .slogan {
+                font-size: 1.15rem;
+            }
+            .founder-banner {
+                padding: 28px;
+            }
+            .founder-banner h3 {
+                font-size: 1.4rem;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <span class="badge-tag"><!--[cite: 1] --><i class="fa-solid fa-fire"></i> 28岁以下青年演员·成长共生体</span>
+            <br>
+            <h1 class="glitch-title">Actor+ 内容成长联盟</h1><!--[cite: 1] -->
+            <div class="slogan">演员之外，再加一种可能！做自己的出品人！</div><!--[cite: 1] -->
+            <p class="hero-desc">
+                打破“被动等戏拍”的单一路径<!--[cite: 1] -->。我们不造一夜爆红的梦，只做落地可行的事<!--[cite: 1] -->。以自媒体内容为第二成长曲线，搭建信息共享、机会互通的青年演员互助共同体<!--[cite: 1] -->。
+            </p>
+            <a href="#join" class="cta-button">
+                <i class="fa-solid fa-paper-plane"></i> 抢先申请 50 名创始席位
+            </a>
+        </div>
+    </header>
+
+    <!-- Core Value Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>核心赋能 · 为什么加入我们</h2>
+                <p>把执行门槛降到最低，让每一位青年演员拥有主动发声的能力</p><!--[cite: 1] -->
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                    <h3>极简高效创作</h3>
+                    <p>遵循“1人 1机 10分钟”原则<!--[cite: 1] -->，无需复杂团队<!--[cite: 1] -->，拿到即拍，零额外成本解决“拍什么”的焦虑<!--[cite: 1] -->。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>分级选题供应</h3>
+                    <p>每 2-3 天更新 1 期分级选题包<!--[cite: 1] -->，涵盖跟拍、改编与原创<!--[cite: 1] -->，精准适配你的个人演艺标签<!--[cite: 1] -->。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>流量冷启动破局</h3>
+                    <p>群内作品互赞互评机制<!--[cite: 1] -->，解决初始流量推荐<!--[cite: 1] -->，用算法和同频效应让数据实现可见增长<!--[cite: 1] -->。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-passport"></i></div>
+                    <h3>经纪人视角破圈</h3>
+                    <p>深耕行业的经纪人（云闲）同步靠谱组讯<!--[cite: 1] -->、避坑指南及议价参考<!--[cite: 1] -->，打破圈内信息差<!--[cite: 1] -->。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>资源与机会内推</h3>
+                    <p>优先共享群内临时工单、短片广告推荐及商业对接<!--[cite: 1] -->，优质账号更可获得深度 MCN 孵化<!--[cite: 1] -->。</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h3>拒绝职业孤独</h3>
+                    <p>定期树洞夜与能量补给时刻<!--[cite: 1] -->，在残酷的生态里互相打气<!--[cite: 1] -->，建立多职业标签思维<!--[cite: 1] -->。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Member Special Banner -->
+    <section>
+        <div class="container">
+            <div class="founder-banner">
+                <h3><i class="fa-solid fa-crown"></i> 首批 50 名创始种子成员权益</h3><!--[cite: 1] -->
+                <p>
+                    我们正在寻找第一批愿意动起来的行动派<!--[cite: 1] -->！前 50 位加入的创始成员不仅享有基础选题权益<!--[cite: 1] -->，还将全程共享联盟后续发展的进阶服务与互助生态<!--[cite: 1] -->。
+                </p>
+                <ul class="perks-list">
+                    <li><i class="fa-solid fa-circle-check"></i> 持续获得分级选题包更新<!--[cite: 1] --></li>
+                    <li><i class="fa-solid fa-circle-check"></i> 同步享有进阶会员级的互助资源<!--[cite: 1] --></li>
+                    <li><i class="fa-solid fa-circle-check"></i> 优先获得经纪人 1对1 账号诊断建议<!--[cite: 1] --></li>
+                    <li><i class="fa-solid fa-circle-check"></i> 一手试镜组讯与演员通告优先对接<!--[cite: 1] --></li>
+                    <li><i class="fa-solid fa-circle-check"></i> 进阶脚本模板与行业信息共享库<!--[cite: 1] --></li>
+                    <li><i class="fa-solid fa-circle-check"></i> 优质账号直通轻量化 MCN 商业孵化<!--[cite: 1] --></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three-Tier Content Rocket -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>内容三级火箭体系</h2>
+                <p>从低门槛快速上手，逐步打造你的专业数字简历</p><!--[cite: 1] -->
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <span class="level-badge badge-l1">L1 跟拍型</span><!--[cite: 1] -->
+                    <h3>爆款复刻 · 照稿就拍</h3><!--[cite: 1] -->
+                    <p>直接复刻爆款框架<!--[cite: 1] -->，替换演员身份与台词<!--[cite: 1] -->。新手快速入门首选<!--[cite: 1] -->，像交作业一样轻松完成<!--[cite: 1] -->。</p>
+                </div>
+                <div class="card">
+                    <span class="level-badge badge-l2">L2 改编型</span><!--[cite: 1] -->
+                    <h3>热点结合 · 个人表达</h3><!--[cite: 1] -->
+                    <p>热点话题结合演员职业属性<!--[cite: 1] -->，融入少量个人故事与观点<!--[cite: 1] -->，适合进阶练习<!--[cite: 1] -->。</p>
+                </div>
+                <div class="card">
+                    <span class="level-badge badge-l3">L3 原创型</span><!--[cite: 1] -->
+                    <h3>专属人设 · 高质IP</h3><!--[cite: 1] -->
+                    <p>基于个人特长与性格专属打造<!--[cite: 1] -->，形成具商业价值的个人 IP<!--[cite: 1] -->，铺平后期孵化闭环<!--[cite: 1] -->。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Joining Requirements -->
+    <section id="join">
+        <div class="container">
+            <div class="section-header">
+                <h2>准入条件与承诺</h2>
+                <p>我们不养观望的人，只找愿意一起前进的青年演员</p><!--[cite: 1] -->
+            </div>
+            <div style="max-width: 720px; margin: 0 auto;">
+                <div class="req-box">
+                    <h4><i class="fa-solid fa-user-check" style="color:var(--dy-red);"></i> 年龄与身份门槛</h4>
+                    <p>年龄需在 <strong>28 周岁以下</strong><!--[cite: 1] -->；科班毕业 / 签约经纪公司 / 有正式拍戏经历（三者满足其一）<!--[cite: 1] -->。</p>
+                </div>
+                <div class="req-box">
+                    <h4><i class="fa-solid fa-bolt" style="color:var(--dy-cyan);"></i> 行动派入群承诺</h4>
+                    <p>入群后 <strong>每周至少发布 1 条</strong> 群供选题内容<!--[cite: 1] -->。打破“等戏”焦虑，靠行动被市场看见<!--[cite: 1] -->。</p>
+                </div>
+                <div class="req-box">
+                    <h4><i class="fa-solid fa-file-signature"></i> 审核机制</h4>
+                    <p>提交 1 个个人自媒体账号链接 + 过往经历简介，由团队审核合格后拉入组群<!--[cite: 1] -->。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Actor+ 青年演员内容成长联盟</strong></p><!--[cite: 1] -->
+            <p style="margin-top: 5px;">发起方：子正（内容策划） | 云闲（经纪统筹）</p><!--[cite: 1] -->
+            <p style="margin-top: 15px; font-size: 0.8rem; color: #a6a8b3;">© 2026 Actor+ Alliance. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
