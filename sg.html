@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>孙宇晨完整暗面年表</title>
+    <style>
+        /* 针对 9:26 比例长图优化的重置与暗黑背景 */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #040406;
+            background-image: 
+                radial-gradient(circle at center, transparent 20%, #000000 100%),
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 20px 20px, 20px 20px;
+            font-family: 'Helvetica Neue', 'Heiti SC', 'Microsoft YaHei', sans-serif;
+            color: #d0d0d0;
+            padding: 40px 0;
+            /* 模拟手机端/超长图宽度 */
+            width: 480px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .silver-text {
+            background: linear-gradient(135deg, #ffffff 0%, #a8a8a8 50%, #e0e0e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 头部区 */
+        .header { text-align: center; padding: 0 20px 30px; position: relative; z-index: 10; }
+        .header h1 { font-size: 22px; font-weight: 900; letter-spacing: 1px; margin-bottom: 10px;}
+        
+        /* 垂直中轴线 */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            margin-left: -1px;
+            background: linear-gradient(to bottom, transparent, #888 5%, #888 95%, transparent);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        /* 阶段标签 */
+        .stage-badge {
+            width: 85%;
+            margin: 20px auto;
+            padding: 8px 0;
+            background: #1a1a24; /* 使用纯色深底，杜绝半透明发虚 */
+            border: 1px solid #3a3a4a;
+            border-radius: 20px;
+            color: #ffffff !important; /* 强制纯白字体 */
+            -webkit-text-fill-color: #ffffff !important; /* 彻底覆盖之前的透明填充 */
+            text-shadow: none !important; /* 移除虚化阴影 */
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* 时间节点 */
+        .node {
+            position: relative;
+            width: 100%;
+            min-height: 80px;
+            margin-bottom: 25px;
+        }
+        
+        /* 轴心发光点 */
+        .node::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            margin-left: -5px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff;
+            z-index: 2;
+        }
+
+        /* 内容卡片 */
+        .card {
+            position: relative;
+            width: 42%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 10px 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            z-index: 3;
+        }
+
+        /* 左右交替排版 */
+        .node:nth-child(odd) .card { left: 4%; }
+        .node:nth-child(odd)::before {
+            content: ''; position: absolute; top: 19px; left: 46%; width: 4%; height: 2px; background: #666;
+        }
+        
+        .node:nth-child(even) .card { left: 54%; }
+        .node:nth-child(even)::before {
+            content: ''; position: absolute; top: 19px; left: 50%; width: 4%; height: 2px; background: #666;
+        }
+
+        /* 文字排版 */
+        .year { font-size: 13px; font-weight: 900; margin-bottom: 4px; display: inline-block; }
+        .title { font-size: 13px; color: #fff; font-weight: bold; margin-bottom: 6px; line-height: 1.3;}
+        .desc { font-size: 11px; color: #a5a5a5; line-height: 1.6; text-align: justify; }
+
+        /* 总结模块 */
+        .summary {
+            margin: 30px 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+        .summary h2 { font-size: 15px; text-align: center; margin-bottom: 12px; }
+        .sum-item { margin-bottom: 12px; }
+        .sum-item h3 { font-size: 12px; color: #fff; margin-bottom: 4px; }
+        .sum-item p { font-size: 11px; color: #a5a5a5; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 class="silver-text">孙宇晨完整暗面年表</h1>
+        <div class="silver-text" style="font-size: 12px; letter-spacing: 2px;">(1990 — 2026)</div>
+    </div>
+
+    <div class="timeline">
+        
+        <div class="stage-badge silver-text">【第一阶段：原生家庭崩盘与体制空子套路期】</div>
+        
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">1990年</div>
+                <div class="title">出生于青海西宁</div>
+                <div class="desc">外公曾任副市长，父亲在规划局任职，母亲职业为记者，沉迷于传销后转微商。背靠体制内资源，极力包装“穷小子逆袭”人设。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">1994年（4岁）</div>
+                <div class="title">童年家庭环境崩塌</div>
+                <div class="desc">随父母搬迁至广东惠州。后父母离婚，母亲远赴意大利改嫁，父亲酗酒，童年家庭环境崩塌。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">1999年前后（9岁）</div>
+                <div class="title">武汉学棋与利己心理形成</div>
+                <div class="desc">被独自送往武汉学棋三年，冲段失败返回惠州。自叙常需拖醉酒父亲回家，形成“缺乏保护则必须极致利己”的生存心理。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2007年</div>
+                <div class="title">新概念套路与高考移民</div>
+                <div class="desc">研究新概念作文大赛评委偏好与套路硬写获奖；利用青海户籍进行“高考移民”享受加分政策，进入北京大学中文系。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2008-2011年</div>
+                <div class="title">北大公关与才子标签</div>
+                <div class="desc">入校后迅速转入历史系。通过密切公关教授、提早提交论文等策略拉高GPA至全系第一并提前毕业。登上《亚洲周刊》封面，打响“北大才子”标签。</div>
+            </div>
+        </div>
+
+        <div class="stage-badge silver-text">【第二阶段：出逃文艺界、梭哈金融与大厂镀金】</div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2011-2013年</div>
+                <div class="title">宾大危机与第一桶金</div>
+                <div class="desc">赴宾夕法尼亚大学求学。组建《新新青年》杂志涉抄袭引发危机。随后将学费生活费梭哈比特币和特斯拉股票，斩获人生第一桶金。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2013年底</div>
+                <div class="title">Ripple Labs 中国区首代</div>
+                <div class="desc">加入 Ripple Labs 担任中国区首席代表，借硅谷大厂名头回国推进区块链概念营销。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2014-2015年</div>
+                <div class="title">创立陪我与马云门徒</div>
+                <div class="desc">创立锐波及“陪我”App。入选湖畔大学第一期学员（最年轻），持续绑定“马云门徒”标签进行信任背书。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2015年8月</div>
+                <div class="title">张孟宁众筹与反目</div>
+                <div class="desc">与张孟宁假恋爱假结婚发起“打赏抢婚”众筹获得3.8万元。张孟宁爆料其送廉价衣柜、后追要千元差价。</div>
+            </div>
+        </div>
+
+        <div class="stage-badge silver-text">【第三阶段：暴利ICO、司法边控与偷渡外逃】</div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2017年</div>
+                <div class="title">波场ICO与曾颖情感</div>
+                <div class="desc">创立波场(TRON)，白皮书遭指控抄袭以太坊。在“94禁令”前夕融资7000万美元。同年与曾颖建立长期情感关系。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2018年6月</div>
+                <div class="title">收购 BitTorrent</div>
+                <div class="desc">以1.4亿美元现金收购老牌P2P协议 BitTorrent，随后发行 BTT 代币转化千万级下载用户。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2018年6-7月</div>
+                <div class="title">司法边控与偷渡传闻</div>
+                <div class="desc">因涉嫌非法集资被列入边控。7月正规离境被拦。后续藏身货车后备箱偷渡至越南，利用小国护照辗转抵美。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2018年11月</div>
+                <div class="title">现身美国</div>
+                <div class="desc">公开现身美国，此后未再返回中国大陆。</div>
+            </div>
+        </div>
+
+        <div class="stage-badge silver-text">【第四阶段：炒作绑架名流、区块链暴力接管与流量洗牌】</div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2019年6-7月</div>
+                <div class="title">巴菲特午餐与洗售指控</div>
+                <div class="desc">以456.78万美元拍下午餐，后以“突发肾结石”宣布取消，利用名流效应登热搜。期间交易行为遭多方指控存在洗售。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2019-2022年</div>
+                <div class="title">垄断 USDT 资金管道</div>
+                <div class="desc">与 Tether 合作，截至2026年控盘超850亿美金流动性，占据全球 USDT 约半数份额，锁定跨境资金通道。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2020年3月</div>
+                <div class="title">Steem 链暴力接管</div>
+                <div class="desc">收购 Steemit 后，联合大交易所动用用户代币强行控制顶级节点，导致社区硬分叉，被指中心化绞杀。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2021年底</div>
+                <div class="title">小国护照与 WTO 大使</div>
+                <div class="desc">获得格林纳达国籍，并获任常驻 WTO 代表，尝试构建外交豁免权避险屏障。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2022年5月</div>
+                <div class="title">逆势推出 USDD</div>
+                <div class="desc">在 LUNA 崩盘背景下，逆势推出波场算法稳定币 USDD，以高达30%的年化收益吸收流动性。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2022年10月</div>
+                <div class="title">幕后收购火币 (HTX)</div>
+                <div class="desc">通过百域资本幕后收购火币。完成从“发币方”到“交易撮合端”的商业闭环。</div>
+            </div>
+        </div>
+
+        <div class="stage-badge silver-text">【第五阶段：指控和解、政治押注与情感诉讼爆雷】</div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2023年3月</div>
+                <div class="title">SEC起诉与撤职</div>
+                <div class="desc">美国 SEC 起诉其未经登记发行证券及操纵市场。同期格林纳达撤销其 WTO 大使职务。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">约2017-2024</div>
+                <div class="title">曾颖时期解体</div>
+                <div class="desc">陪伴约7年后分手。曾颖公开吐槽其“上岸第一剑，先斩意中人”，给6万补偿并拉黑，生病期间缺乏妥善照顾。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2024-2025年</div>
+                <div class="title">政治押注与吃香蕉</div>
+                <div class="desc">注资特朗普相关加密项目博弈监管宽松，后与 SEC 和解。期间620万美元拍下胶带香蕉并当众吃掉。</div>
+            </div>
+        </div>
+
+        <div class="node">
+            <div class="card">
+                <div class="year silver-text">2025底-2026上</div>
+                <div class="title">景甜纠纷与万字曝光</div>
+                <div class="desc">与景甜短暂交往，支付超3000万。分手后诉讼要返还财产，发长文披露代孕等私密细节引爆舆论。</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 总结模块 -->
+    <div class="summary">
+        <h2 class="silver-text">2026年现状总结</h2>
+        <div class="sum-item">
+            <h3>资产结构</h3>
+            <p>评估身家达85亿美元，但极高比例绑定在高度控盘（超60%）的 TRX 代币及 HTX 流动性中，变现能力与风险紧密挂钩。</p>
+        </div>
+        <div class="sum-item">
+            <h3>法律与身份限制</h3>
+            <p>持有格林纳达等多重护照长期居于海外；中国大陆边控指令依旧生效，无法入境。</p>
+        </div>
+        <div class="sum-item">
+            <h3>终极套路总结</h3>
+            <p>从借政策套名校、围拢教授刷GPA，到借名流包装影响力；从偷渡避险到对历任女友对簿公堂。其轨迹呈现高度一致的“利用制度缝隙与社会关系镀金，转化为个人杠杆后进行极致变现”的生存法则。</p>
+        </div>
+    </div>
+
+</body>
+</html>
